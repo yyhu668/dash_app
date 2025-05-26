@@ -1,0 +1,53 @@
+{
+    "data": {
+        "applet": {
+            "id": "yZHQBC5f",
+            "name": "A reminder to drink water",
+            "description": "This applet sends you a notification \"Drink a glass of water!\" every 2 hours between 8 am and 8 pm :)",
+            "installs_count": 1645,
+            "friendly_id": "yZHQBC5f-a-reminder-to-drink-water",
+            "channels": [
+                {
+                    "name": "Date & Time",
+                    "module_name": "date_and_time",
+                    "short_name": "Date Time",
+                    "brand_color": "333333"
+                },
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                }
+            ],
+            "trigger": {
+                "name": "Every hour at",
+                "description": "This Trigger fires once an hour at :00, :15, :30, or :45 minutes past the hour.",
+                "module_name": "every_hour_at",
+                "full_normalized_module_name": "DateAndTime.everyHourAt",
+                "ingredients": [
+                    {
+                        "normalized_name": "DateAndTime.everyHourAt.CheckTime",
+                        "value_type": "string",
+                        "slug": "CheckTime",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

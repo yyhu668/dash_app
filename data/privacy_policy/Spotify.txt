@@ -1,0 +1,7 @@
+• Precise and well-defined data types: Spoteify collects personal data such as name, email address, and password to provide services like music streaming. They also collect user data such as listening history and search queries for marketing purposes.
+• How data are collected: Data are collected through cookies, IP addresses, and other online tracking methods.
+• The purpose of collection: The primary purpose of collecting data is to provide services like music streaming and improve them based on user behavior.
+• The security guarantees: Spotify ensures that all data are encrypted and password protected to prevent unauthorized access.
+• The usage of the data: Collected data are used to improve services, for marketing purposes, and for research purposes.
+• What's the control for the user on their data: Users have the option to opt-out of certain types of data collection and can delete their account at any time.
+• And what's the contact information for the user with the link to it: Spotify provides a support email [support@spotify.com](mailto:support@spotify.com) and a phone number (1-877-SPOTIFY) for users to contact them.

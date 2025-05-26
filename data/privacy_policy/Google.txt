@@ -1,0 +1,7 @@
+The Google Privacy Policy states that they collect data such as: Personal data (e.g., name, email address), Device and usage data (e.g., IP address, browser type), Location data
+Data are collected through various means, including: Directly from users when they create an account or use a service, From third-party sources, such as advertisers or partners
+The purpose of collection is to provide services, improve them, and personalize the user experience.
+Security guarantees include: Data encryption in transit and at rest, Regular security audits and penetration testing
+Data are used for various purposes, including: Providing services (e.g., email, search), Personalizing the user experience, Improving services through analytics
+Users have control over their data through: Account settings to manage personal data, Opt-out options for certain types of data collection
+Contact information is available at https://policies.google.com/contact.

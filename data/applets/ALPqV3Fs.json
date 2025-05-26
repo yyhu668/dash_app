@@ -1,0 +1,77 @@
+{
+    "data": {
+        "applet": {
+            "id": "ALPqV3Fs",
+            "name": "Back up your new Android photos to Google Drive",
+            "description": "Back up your new Android photos to Google Drive",
+            "installs_count": 1428,
+            "friendly_id": "ALPqV3Fs-back-up-your-new-android-photos-to-google-drive",
+            "channels": [
+                {
+                    "name": "Google Drive",
+                    "module_name": "google_drive",
+                    "short_name": "Google",
+                    "brand_color": "23448b"
+                },
+                {
+                    "name": "Android Photos",
+                    "module_name": "android_photos",
+                    "short_name": "Photos",
+                    "brand_color": "E29337"
+                }
+            ],
+            "trigger": {
+                "name": "Any new photo",
+                "description": "This Trigger fires every time a new photo is taken on your Android device.",
+                "module_name": "android_new_photo",
+                "full_normalized_module_name": "AndroidPhotos.androidNewPhoto",
+                "ingredients": [
+                    {
+                        "normalized_name": "AndroidPhotos.androidNewPhoto.TemporaryPublicPhotoURL",
+                        "value_type": "image_url",
+                        "slug": "TemporaryPublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit for 30 days."
+                    },
+                    {
+                        "normalized_name": "AndroidPhotos.androidNewPhoto.PublicPhotoURL",
+                        "value_type": "string",
+                        "slug": "PublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit."
+                    },
+                    {
+                        "normalized_name": "AndroidPhotos.androidNewPhoto.TakenDate",
+                        "value_type": "datetime",
+                        "slug": "TakenDate",
+                        "note": "The time the photo was taken."
+                    },
+                    {
+                        "normalized_name": "AndroidPhotos.androidNewPhoto.DeviceName",
+                        "value_type": "string",
+                        "slug": "device_name",
+                        "note": "The name of the device on which the event occurred."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Upload file from URL",
+                    "description": "This action will download a file at a given URL and add it to Google Drive at the path you specify. NOTE: 100 MB file size limit.\r\n",
+                    "module_name": "upload_file_from_url_google_drive",
+                    "full_normalized_module_name": "GoogleDrive.uploadFileFromUrlGoogleDrive",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Url"
+                        },
+                        {
+                            "normalized_module_name": "Filename"
+                        },
+                        {
+                            "normalized_module_name": "Path"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

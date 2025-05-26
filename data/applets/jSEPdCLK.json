@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "jSEPdCLK",
+            "name": "Send yourself a notification for testing.",
+            "description": "Send a notification from the IFTTT app",
+            "installs_count": 63747,
+            "friendly_id": "jSEPdCLK-send-yourself-a-notification-for-testing",
+            "channels": [
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                },
+                {
+                    "name": "Button widget",
+                    "module_name": "do_button",
+                    "short_name": "Button",
+                    "brand_color": "ee4433"
+                }
+            ],
+            "trigger": {
+                "name": "Button press",
+                "description": "This trigger fires every time you press the button.",
+                "module_name": "do_button_new_command_common",
+                "full_normalized_module_name": "DoButton.doButtonNewCommandCommon",
+                "ingredients": [
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.ShareURL",
+                        "value_type": "string",
+                        "slug": "ShareURL",
+                        "note": "The link to the Share page for the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Latitude",
+                        "value_type": "string",
+                        "slug": "Latitude",
+                        "note": "The latitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Longitude",
+                        "value_type": "string",
+                        "slug": "Longitude",
+                        "note": "The longitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapURL",
+                        "value_type": "string",
+                        "slug": "LocationMapURL",
+                        "note": "The link to the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapImageURL",
+                        "value_type": "string",
+                        "slug": "LocationMapImageURL",
+                        "note": "The image of the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The date and time you pressed the button."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

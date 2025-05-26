@@ -1,0 +1,95 @@
+{
+    "data": {
+        "applet": {
+            "id": "pc6CeRjs",
+            "name": "Add songs from videos you like to a Spotify playlist",
+            "description": "This Applet will search the title of the video on Spotify \u2014 if it finds the track, it'll add it to a \"YouTube\" playlist. Not all songs on YouTube are available on Spotify. Happy tune hunting!",
+            "installs_count": 62775,
+            "friendly_id": "pc6CeRjs-add-songs-from-videos-you-like-to-a-spotify-playlist",
+            "channels": [
+                {
+                    "name": "YouTube",
+                    "module_name": "youtube",
+                    "short_name": "YouTube",
+                    "brand_color": "FF0000"
+                },
+                {
+                    "name": "Spotify",
+                    "module_name": "spotify",
+                    "short_name": "Spotify",
+                    "brand_color": "1db954"
+                }
+            ],
+            "trigger": {
+                "name": "New liked video",
+                "description": "This Trigger fires every time you like a video on YouTube.",
+                "module_name": "new_liked_video",
+                "full_normalized_module_name": "Youtube.newLikedVideo",
+                "ingredients": [
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.Title",
+                        "value_type": "string",
+                        "slug": "title",
+                        "note": "The video title."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.Description",
+                        "value_type": "string",
+                        "slug": "description",
+                        "note": "Video description."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.Url",
+                        "value_type": "web_url",
+                        "slug": "url",
+                        "note": "The video url."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.AlternativeUrl",
+                        "value_type": "web_url",
+                        "slug": "alternative_url",
+                        "note": "An alternative URL you can use if the original URL doesn't work with your action."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.EmbedCode",
+                        "value_type": "string",
+                        "slug": "embed_code",
+                        "note": "The HTML embed code for the video."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.HttpsEmbedCode",
+                        "value_type": "string",
+                        "slug": "https_embed_code",
+                        "note": "The https:// HTML embed code for the video."
+                    },
+                    {
+                        "normalized_name": "Youtube.newLikedVideo.PublishedAt",
+                        "value_type": "datetime",
+                        "slug": "created_at",
+                        "note": "The time at which you liked the video."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Add track to a playlist",
+                    "description": "This Action will search for a track and add the first result to a playlist you specify.",
+                    "module_name": "add_a_track_to_a_playlist",
+                    "full_normalized_module_name": "Spotify.addATrackToAPlaylist",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Playlist"
+                        },
+                        {
+                            "normalized_module_name": "SearchQuery"
+                        },
+                        {
+                            "normalized_module_name": "ArtistName"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

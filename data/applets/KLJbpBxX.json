@@ -1,0 +1,53 @@
+{
+    "data": {
+        "applet": {
+            "id": "KLJbpBxX",
+            "name": "Mute your Android phone at bedtime",
+            "description": "Mute your Android phone at bedtime",
+            "installs_count": 57716,
+            "friendly_id": "KLJbpBxX-mute-your-android-phone-at-bedtime",
+            "channels": [
+                {
+                    "name": "Date & Time",
+                    "module_name": "date_and_time",
+                    "short_name": "Date Time",
+                    "brand_color": "333333"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "Every day at",
+                "description": "This Trigger fires every single day at a specific time set by you.",
+                "module_name": "every_day_at",
+                "full_normalized_module_name": "DateAndTime.everyDayAt",
+                "ingredients": [
+                    {
+                        "normalized_name": "DateAndTime.everyDayAt.CheckTime",
+                        "value_type": "string",
+                        "slug": "CheckTime",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Mute ringtone",
+                    "description": "This action will mute your Android device's ringtone. If your device is already muted, it will remain muted.",
+                    "module_name": "mute_device",
+                    "full_normalized_module_name": "AndroidDevice.muteDevice",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Vibrate"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

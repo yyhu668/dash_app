@@ -1,0 +1,7 @@
+• Precise and well-defined data types: Twitter collects user data such as names, email addresses, phone numbers, and passwords. It also collects device information like IP addresses, browser types, and operating systems.
+• How data are collected: Twitter collects data through various means including sign-up forms, login credentials, and device information. It also collects data from third-party services that users connect to their accounts.
+• The purpose of collection: Twitter collects data to provide its services, improve user experience, and personalize content. It also uses data for advertising purposes and to develop new features.
+• Security guarantees: Twitter claims to have robust security measures in place to protect user data, including encryption, firewalls, and access controls. However, it also states that no method of transmission or storage is 100% secure.
+• The usage of the data: Twitter uses user data for various purposes including advertising, content personalization, and account verification. It also shares data with third-party services to improve their offerings.
+• What's the control for the user on their data: Users have control over their data through settings options that allow them to manage what information is shared with others. They can also delete their accounts or request data deletion.
+• Contact information for the user with link to it: Twitter provides contact information for users who want to report issues or ask questions about its services. The contact information includes a support email address and a phone number.

@@ -1,0 +1,65 @@
+{
+    "data": {
+        "applet": {
+            "id": "yfaY7BnX",
+            "name": "Tweet your Facebook status updates",
+            "description": "Tweet your Facebook status updates",
+            "installs_count": 48106,
+            "friendly_id": "yfaY7BnX-tweet-your-facebook-status-updates",
+            "channels": [
+                {
+                    "name": "Twitter",
+                    "module_name": "twitter",
+                    "short_name": "Twitter",
+                    "brand_color": "000000"
+                },
+                {
+                    "name": "Facebook",
+                    "module_name": "facebook",
+                    "short_name": "Facebook",
+                    "brand_color": "3B579D"
+                }
+            ],
+            "trigger": {
+                "name": "New status message by you",
+                "description": "This Trigger fires every time you create a new plain text status message on Facebook.",
+                "module_name": "new_status_message_by_you",
+                "full_normalized_module_name": "Facebook.newStatusMessageByYou",
+                "ingredients": [
+                    {
+                        "normalized_name": "Facebook.newStatusMessageByYou.From",
+                        "value_type": "string",
+                        "slug": "From",
+                        "note": "Your Facebook full name."
+                    },
+                    {
+                        "normalized_name": "Facebook.newStatusMessageByYou.Message",
+                        "value_type": "string",
+                        "slug": "Message",
+                        "note": "Status message itself."
+                    },
+                    {
+                        "normalized_name": "Facebook.newStatusMessageByYou.UpdatedAt",
+                        "value_type": "string",
+                        "slug": "UpdatedAt",
+                        "note": "Date and time the status message was created."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Post a tweet",
+                    "description": "This Action will post a new tweet to your Twitter account. NOTE: Please adhere to Twitter\u2019s Rules and Terms of Service. \r\n",
+                    "module_name": "post_new_tweet",
+                    "full_normalized_module_name": "Twitter.postNewTweet",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Tweet"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

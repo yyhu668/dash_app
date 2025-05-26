@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "sJaN2dku",
+            "name": "Press a button to make your Hue lights color loop",
+            "description": "This makes a widget you can add to the home screen on your phone. Then you can press the button to make your Hue lights dance as they do a color loop of rainbow colors. Party time!",
+            "installs_count": 33152,
+            "friendly_id": "sJaN2dku-press-a-button-to-make-your-hue-lights-color-loop",
+            "channels": [
+                {
+                    "name": "Button widget",
+                    "module_name": "do_button",
+                    "short_name": "Button",
+                    "brand_color": "ee4433"
+                },
+                {
+                    "name": "Philips Hue",
+                    "module_name": "hue",
+                    "short_name": "Hue",
+                    "brand_color": "333333"
+                }
+            ],
+            "trigger": {
+                "name": "Button press",
+                "description": "This trigger fires every time you press the button.",
+                "module_name": "do_button_new_command_common",
+                "full_normalized_module_name": "DoButton.doButtonNewCommandCommon",
+                "ingredients": [
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.ShareURL",
+                        "value_type": "string",
+                        "slug": "ShareURL",
+                        "note": "The link to the Share page for the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Latitude",
+                        "value_type": "string",
+                        "slug": "Latitude",
+                        "note": "The latitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Longitude",
+                        "value_type": "string",
+                        "slug": "Longitude",
+                        "note": "The longitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapURL",
+                        "value_type": "string",
+                        "slug": "LocationMapURL",
+                        "note": "The link to the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapImageURL",
+                        "value_type": "string",
+                        "slug": "LocationMapImageURL",
+                        "note": "The image of the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The date and time you pressed the button."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Turn on color loop",
+                    "description": "This Action will turn on a slow color loop effect for your hue lights. NOTE: not compatible with hue lux bulbs.",
+                    "module_name": "colorloop_all_hue",
+                    "full_normalized_module_name": "Hue.colorloopAllHue",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Lights"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

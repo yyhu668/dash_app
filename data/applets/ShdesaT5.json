@@ -1,0 +1,65 @@
+{
+    "data": {
+        "applet": {
+            "id": "ShdesaT5",
+            "name": "Mute your Android phone when you arrive at work",
+            "description": "Locate your workplace and when you arrive, your device will mute and be set to vibrate.",
+            "installs_count": 98126,
+            "friendly_id": "ShdesaT5-mute-your-android-phone-when-you-arrive-at-work",
+            "channels": [
+                {
+                    "name": "Location",
+                    "module_name": "location",
+                    "short_name": "Location",
+                    "brand_color": "0099FF"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "You enter an area",
+                "description": "This Trigger fires every time you enter an area you specify.",
+                "module_name": "enter_region_location",
+                "full_normalized_module_name": "Location.enterRegionLocation",
+                "ingredients": [
+                    {
+                        "normalized_name": "Location.enterRegionLocation.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred."
+                    },
+                    {
+                        "normalized_name": "Location.enterRegionLocation.LocationMapImageUrl",
+                        "value_type": "image_url",
+                        "slug": "LocationMapImageUrl",
+                        "note": "The image of the map of this area."
+                    },
+                    {
+                        "normalized_name": "Location.enterRegionLocation.LocationMapUrl",
+                        "value_type": "web_url",
+                        "slug": "LocationMapUrl",
+                        "note": "The link to the map of this area."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Mute ringtone",
+                    "description": "This action will mute your Android device's ringtone. If your device is already muted, it will remain muted.",
+                    "module_name": "mute_device",
+                    "full_normalized_module_name": "AndroidDevice.muteDevice",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Vibrate"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

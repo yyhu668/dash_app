@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "gTQep2wJ",
+            "name": "Automatically log every call you make on your Android phone to a Google spreadsheet",
+            "description": "Every call you make will be automatically logged to a spreadsheet in Google Drive for safe record keeping.",
+            "installs_count": 10760,
+            "friendly_id": "gTQep2wJ-automatically-log-every-call-you-make-on-your-android-phone-to-a-google-spreadsheet",
+            "channels": [
+                {
+                    "name": "Android Phone Call",
+                    "module_name": "android_phone",
+                    "short_name": "Android Call",
+                    "brand_color": "4B87F1"
+                },
+                {
+                    "name": "Google Sheets",
+                    "module_name": "google_sheets",
+                    "short_name": "Google",
+                    "brand_color": "23448b"
+                }
+            ],
+            "trigger": {
+                "name": "Any outgoing phone call ends",
+                "description": "This Trigger fires every time you place a phone call on your Android device.",
+                "module_name": "place_a_phone_call",
+                "full_normalized_module_name": "AndroidPhone.placeAPhoneCall",
+                "ingredients": [
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.ContactName",
+                        "value_type": "string",
+                        "slug": "ContactName",
+                        "note": "The contact name associated with the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred"
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.ToNumber",
+                        "value_type": "string",
+                        "slug": "ToNumber",
+                        "note": "The number that received the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.CallLength",
+                        "value_type": "string",
+                        "slug": "CallLength",
+                        "note": "The length of the phone call in seconds"
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.DeviceName",
+                        "value_type": "string",
+                        "slug": "device_name",
+                        "note": "The name of the device on which the event occurred."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Add row to spreadsheet",
+                    "description": "This action will add a single row to the bottom of the first worksheet of a spreadsheet you specify. Note: a new spreadsheet is created after 2000 rows.",
+                    "module_name": "append_to_google_spreadsheet",
+                    "full_normalized_module_name": "GoogleSheets.appendToGoogleSpreadsheet",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Filename"
+                        },
+                        {
+                            "normalized_module_name": "FormattedRow"
+                        },
+                        {
+                            "normalized_module_name": "Path"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

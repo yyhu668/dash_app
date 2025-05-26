@@ -1,0 +1,71 @@
+{
+    "data": {
+        "applet": {
+            "id": "Xg6K7DGY",
+            "name": "Set ringer to high after missing a call.",
+            "description": "Set ringer to high after missing a call.",
+            "installs_count": 46809,
+            "friendly_id": "Xg6K7DGY-set-ringer-to-high-after-missing-a-call",
+            "channels": [
+                {
+                    "name": "Android Phone Call",
+                    "module_name": "android_phone",
+                    "short_name": "Android Call",
+                    "brand_color": "4B87F1"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "Any incoming phone call missed",
+                "description": "This Trigger fires every time you miss a phone call on your Android device.",
+                "module_name": "miss_a_phone_call",
+                "full_normalized_module_name": "AndroidPhone.missAPhoneCall",
+                "ingredients": [
+                    {
+                        "normalized_name": "AndroidPhone.missAPhoneCall.ContactName",
+                        "value_type": "string",
+                        "slug": "ContactName",
+                        "note": "The contact name associated with the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.missAPhoneCall.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred"
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.missAPhoneCall.FromNumber",
+                        "value_type": "string",
+                        "slug": "FromNumber",
+                        "note": "The phone number that initiated the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.missAPhoneCall.DeviceName",
+                        "value_type": "string",
+                        "slug": "device_name",
+                        "note": "The name of the device on which the event occurred."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Set ringtone volume",
+                    "description": "This Action will set the ringtone volume of your Android device.",
+                    "module_name": "set_device_volume",
+                    "full_normalized_module_name": "AndroidDevice.setDeviceVolume",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Volume"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "data": {
+        "applet": {
+            "id": "hJMKghVa",
+            "name": "If someone calls, show their location when the call ends",
+            "description": "This applet automatically initiates a Google Maps search for the phone number at the end of each call. If the number is associated with a registered business or a recognized location in Google's database, the applet then opens up navigation directions to that location. This tool is particularly useful for quickly and efficiently getting directions to businesses or locations immediately following a phone conversation.",
+            "installs_count": 92950,
+            "friendly_id": "hJMKghVa-if-someone-calls-show-their-location-when-the-call-ends",
+            "channels": [
+                {
+                    "name": "Android Phone Call",
+                    "module_name": "android_phone",
+                    "short_name": "Android Call",
+                    "brand_color": "4B87F1"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "Any outgoing phone call ends",
+                "description": "This Trigger fires every time you place a phone call on your Android device.",
+                "module_name": "place_a_phone_call",
+                "full_normalized_module_name": "AndroidPhone.placeAPhoneCall",
+                "ingredients": [
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.ContactName",
+                        "value_type": "string",
+                        "slug": "ContactName",
+                        "note": "The contact name associated with the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred"
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.ToNumber",
+                        "value_type": "string",
+                        "slug": "ToNumber",
+                        "note": "The number that received the call."
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.CallLength",
+                        "value_type": "string",
+                        "slug": "CallLength",
+                        "note": "The length of the phone call in seconds"
+                    },
+                    {
+                        "normalized_name": "AndroidPhone.placeAPhoneCall.DeviceName",
+                        "value_type": "string",
+                        "slug": "device_name",
+                        "note": "The name of the device on which the event occurred."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Launch Google Maps Navigation",
+                    "description": "This Action will launch Google Maps Navigation on your Android device and begin turn-by-turn guidance to the destination you specify.",
+                    "module_name": "start_navigation",
+                    "full_normalized_module_name": "AndroidDevice.startNavigation",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "NavigationMethod"
+                        },
+                        {
+                            "normalized_module_name": "Query"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

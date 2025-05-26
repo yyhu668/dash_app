@@ -1,0 +1,167 @@
+{
+    "data": {
+        "applet": {
+            "id": "YY9Mqgw5",
+            "name": "Get the weather forecast every day at 7:00 AM",
+            "description": "Every morning you will receive a simple weather report notification at 7 AM. Keep in mind this Applet requires the IFTTT app.",
+            "installs_count": 89026,
+            "friendly_id": "YY9Mqgw5-get-the-weather-forecast-every-day-at-7-00-am",
+            "channels": [
+                {
+                    "name": "Weather Underground",
+                    "module_name": "weather",
+                    "short_name": "Weather",
+                    "brand_color": "1E2023"
+                },
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                }
+            ],
+            "trigger": {
+                "name": "Today's weather report",
+                "description": "This Trigger retrieves today's current weather report within 5 minutes of the time you specify. NOTE: Pollen count available only in the USA.",
+                "module_name": "current_weather_at_time",
+                "full_normalized_module_name": "Weather.currentWeatherAtTime",
+                "ingredients": [
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.SunriseAt",
+                        "value_type": "datetime",
+                        "slug": "sunrise_at",
+                        "note": "The date and time of today's sunrise."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.SunsetAt",
+                        "value_type": "datetime",
+                        "slug": "sunset_at",
+                        "note": "The date and time of today's sunset."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.CurrentTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "current_temp_fahrenheit",
+                        "note": "The current temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.CurrentTempCelsius",
+                        "value_type": "string",
+                        "slug": "current_temp_celsius",
+                        "note": "The current temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.CurrentCondition",
+                        "value_type": "string",
+                        "slug": "current_condition",
+                        "note": "The current weather condition."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.CurrentConditionImageURL",
+                        "value_type": "image_url",
+                        "slug": "current_condition_image_url",
+                        "note": "The URL to an image of the current condition."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.TodaysConditionImageURL",
+                        "value_type": "image_url",
+                        "slug": "todays_condition_image_url",
+                        "note": "The URL to an image of todays's condition."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.ForecastUrl",
+                        "value_type": "web_url",
+                        "slug": "forecast_url",
+                        "note": "The URL to a five day forecast for your location."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.TodaysCondition",
+                        "value_type": "string",
+                        "slug": "todays_condition",
+                        "note": "Today's weather condition"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.HighTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "high_temp_fahrenheit",
+                        "note": "Today's high temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.HighTempCelsius",
+                        "value_type": "string",
+                        "slug": "high_temp_celsius",
+                        "note": "Today's high temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.LowTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "low_temp_fahrenheit",
+                        "note": "Today's low temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.LowTempCelsius",
+                        "value_type": "string",
+                        "slug": "low_temp_celsius",
+                        "note": "Today's low temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.UvIndex",
+                        "value_type": "string",
+                        "slug": "uv_index",
+                        "note": "The current UV index, 0-16"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.Humidity",
+                        "value_type": "string",
+                        "slug": "humidity",
+                        "note": "The current humidity level represented as a percentage."
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.WindSpeedMph",
+                        "value_type": "string",
+                        "slug": "wind_speed_mph",
+                        "note": "Wind speed in MPH"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.WindSpeedKph",
+                        "value_type": "string",
+                        "slug": "wind_speed_kph",
+                        "note": "Wind speed in KPH"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.WindDirection",
+                        "value_type": "string",
+                        "slug": "wind_direction",
+                        "note": "Wind direction"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.PollenCount",
+                        "value_type": "string",
+                        "slug": "pollen_count",
+                        "note": "The current pollen count, 0-12"
+                    },
+                    {
+                        "normalized_name": "Weather.currentWeatherAtTime.CheckTime",
+                        "value_type": "datetime",
+                        "slug": "check_time",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

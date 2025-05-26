@@ -1,0 +1,74 @@
+{
+    "data": {
+        "applet": {
+            "id": "KD87nZVq",
+            "name": "Track your work hours in Google Calendar",
+            "description": "Set your work location and your arrive/leaving time will be automatically added to a Google Calendar for simple tracking.",
+            "installs_count": 20945,
+            "friendly_id": "KD87nZVq-track-your-work-hours-in-google-calendar",
+            "channels": [
+                {
+                    "name": "Location",
+                    "module_name": "location",
+                    "short_name": "Location",
+                    "brand_color": "0099FF"
+                },
+                {
+                    "name": "Google Calendar",
+                    "module_name": "google_calendar",
+                    "short_name": "Google",
+                    "brand_color": "2C6EFC"
+                }
+            ],
+            "trigger": {
+                "name": "You enter or exit an area",
+                "description": "This Trigger fires every time you enter or exit an area you specify.",
+                "module_name": "enter_or_exit_region_location",
+                "full_normalized_module_name": "Location.enterOrExitRegionLocation",
+                "ingredients": [
+                    {
+                        "normalized_name": "Location.enterOrExitRegionLocation.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred."
+                    },
+                    {
+                        "normalized_name": "Location.enterOrExitRegionLocation.LocationMapImageUrl",
+                        "value_type": "image_url",
+                        "slug": "LocationMapImageUrl",
+                        "note": "The image of the map of this area."
+                    },
+                    {
+                        "normalized_name": "Location.enterOrExitRegionLocation.LocationMapUrl",
+                        "value_type": "web_url",
+                        "slug": "LocationMapUrl",
+                        "note": "The link to the map of this area."
+                    },
+                    {
+                        "normalized_name": "Location.enterOrExitRegionLocation.EnteredOrExited",
+                        "value_type": "string",
+                        "slug": "EnteredOrExited",
+                        "note": "Whether you entered or exited the area."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Quick add event",
+                    "description": "This Action will add an event to your Google Calendar. Simply include a detailed description of when and what.",
+                    "module_name": "quick_add_event",
+                    "full_normalized_module_name": "GoogleCalendar.quickAddEvent",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Calendar"
+                        },
+                        {
+                            "normalized_module_name": "QuickAdd"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

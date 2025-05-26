@@ -1,0 +1,98 @@
+{
+    "data": {
+        "applet": {
+            "id": "Wy89cqfv",
+            "name": "Quickly create events in Google Calendar",
+            "description": "Enter a description like \"Meeting with Jonathan at 3:30 on June 10th\" and the event will be created on your calendar with the correct date and time. The more specific your description is the better!",
+            "installs_count": 11344,
+            "friendly_id": "Wy89cqfv-quickly-create-events-in-google-calendar",
+            "channels": [
+                {
+                    "name": "Google Calendar",
+                    "module_name": "google_calendar",
+                    "short_name": "Google",
+                    "brand_color": "2C6EFC"
+                },
+                {
+                    "name": "Note widget",
+                    "module_name": "do_note",
+                    "short_name": "Note widget",
+                    "brand_color": "ee4433"
+                }
+            ],
+            "trigger": {
+                "name": "Any new note",
+                "description": "This trigger fires every time you submit any new note.",
+                "module_name": "do_note_new_command_common",
+                "full_normalized_module_name": "DoNote.doNoteNewCommandCommon",
+                "ingredients": [
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.NoteText",
+                        "value_type": "string",
+                        "slug": "Text",
+                        "note": "The text of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.NoteTextImageURL",
+                        "value_type": "string",
+                        "slug": "ImageURL",
+                        "note": "The link to an image of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.ShareURL",
+                        "value_type": "string",
+                        "slug": "ShareURL",
+                        "note": "The link to the Share page for the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.Latitude",
+                        "value_type": "string",
+                        "slug": "Latitude",
+                        "note": "The latitude of the location of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.Longitude",
+                        "value_type": "string",
+                        "slug": "Longitude",
+                        "note": "The longitude of the location of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.LocationMapURL",
+                        "value_type": "string",
+                        "slug": "LocationMapURL",
+                        "note": "The link to the map of the location of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.LocationMapImageURL",
+                        "value_type": "string",
+                        "slug": "LocationMapImageURL",
+                        "note": "The image of the map of the location of the note."
+                    },
+                    {
+                        "normalized_name": "DoNote.doNoteNewCommandCommon.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The date and time the note was taken."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Quick add event",
+                    "description": "This Action will add an event to your Google Calendar. Simply include a detailed description of when and what.",
+                    "module_name": "quick_add_event",
+                    "full_normalized_module_name": "GoogleCalendar.quickAddEvent",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Calendar"
+                        },
+                        {
+                            "normalized_module_name": "QuickAdd"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

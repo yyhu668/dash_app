@@ -1,0 +1,7 @@
+• Precise and well-defined data types: Meta collects various types of personal data, including names, email addresses, phone numbers, and location information.
+• How data are collected: Data are collected through various means, including user registration, social media interactions, and website usage.
+• The purpose of collection: The primary purpose of collecting data is to provide users with a personalized experience on the platform, as well as to improve the overall functionality and security of the platform.
+• The security guarantees: Meta claims to have robust security measures in place to protect user data from unauthorized access or breaches.
+• The usage of the data: Collected data are used for various purposes, including targeted advertising, social media analytics, and customer service.
+• What's the control for the user on their data: Users have some control over their data through settings options, but Meta reserves the right to use and share data as needed.
+• Contact information for the user with the link to it: The contact page can be found at https://www.meta.com/contact.

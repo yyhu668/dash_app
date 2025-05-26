@@ -1,0 +1,98 @@
+{
+    "data": {
+        "applet": {
+            "id": "Ad75LtKR",
+            "name": "A daily email with new Recipes for you to try",
+            "description": "Use this recipe to get a daily email with a new, trending Recipe.",
+            "installs_count": 39345,
+            "friendly_id": "Ad75LtKR-a-daily-email-with-new-recipes-for-you-to-try",
+            "channels": [
+                {
+                    "name": "Email",
+                    "module_name": "email",
+                    "short_name": "Email",
+                    "brand_color": "2468ff"
+                },
+                {
+                    "name": "IFTTT",
+                    "module_name": "ifttt",
+                    "short_name": "IFTTT",
+                    "brand_color": "666666"
+                }
+            ],
+            "trigger": {
+                "name": "Daily recommended Applet for you",
+                "description": "This trigger recommends a new Applet every day at the time you specify.",
+                "module_name": "daily_recommended_recipe",
+                "full_normalized_module_name": "Ifttt.dailyRecommendedRecipe",
+                "ingredients": [
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.Title",
+                        "value_type": "string",
+                        "slug": "Title",
+                        "note": "The applet's title."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.Notes",
+                        "value_type": "string",
+                        "slug": "Notes",
+                        "note": "Optional recipe notes."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.Url",
+                        "value_type": "web_url",
+                        "slug": "Url",
+                        "note": "The URL to the recipe's public page."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.ImageUrl",
+                        "value_type": "image_url",
+                        "slug": "ImageUrl",
+                        "note": "The URL to an image that represents the Recipe."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.Username",
+                        "value_type": "string",
+                        "slug": "Username",
+                        "note": "The Recipe creator's username"
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.UserRecipesUrl",
+                        "value_type": "web_url",
+                        "slug": "UserRecipesUrl",
+                        "note": "The URL to the creator's public IFTTT Recipe list."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.EmbedCode",
+                        "value_type": "string",
+                        "slug": "EmbedCode",
+                        "note": "The HTML embed code for the Published Recipe."
+                    },
+                    {
+                        "normalized_name": "Ifttt.dailyRecommendedRecipe.CreatedAt",
+                        "value_type": "datetime",
+                        "slug": "CreatedAt",
+                        "note": "Date and time the Recipe was created."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send me an email",
+                    "description": "This Action will send you an HTML based email. Images and links are supported.",
+                    "module_name": "send_me_email",
+                    "full_normalized_module_name": "Email.sendMeEmail",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Subject"
+                        },
+                        {
+                            "normalized_module_name": "Body"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

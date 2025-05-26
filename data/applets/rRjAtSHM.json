@@ -1,0 +1,79 @@
+{
+    "data": {
+        "applet": {
+            "id": "rRjAtSHM",
+            "name": "Music button",
+            "description": "Button that plays music!",
+            "installs_count": 57689,
+            "friendly_id": "rRjAtSHM-music-button",
+            "channels": [
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                },
+                {
+                    "name": "Button widget",
+                    "module_name": "do_button",
+                    "short_name": "Button",
+                    "brand_color": "ee4433"
+                }
+            ],
+            "trigger": {
+                "name": "Button press",
+                "description": "This trigger fires every time you press the button.",
+                "module_name": "do_button_new_command_common",
+                "full_normalized_module_name": "DoButton.doButtonNewCommandCommon",
+                "ingredients": [
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.ShareURL",
+                        "value_type": "string",
+                        "slug": "ShareURL",
+                        "note": "The link to the Share page for the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Latitude",
+                        "value_type": "string",
+                        "slug": "Latitude",
+                        "note": "The latitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Longitude",
+                        "value_type": "string",
+                        "slug": "Longitude",
+                        "note": "The longitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapURL",
+                        "value_type": "string",
+                        "slug": "LocationMapURL",
+                        "note": "The link to the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapImageURL",
+                        "value_type": "string",
+                        "slug": "LocationMapImageURL",
+                        "note": "The image of the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The date and time you pressed the button."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Play music",
+                    "description": "This Action will play music on your Android device. The music played depends on your device and setup. Depending on your version of Android, playback may not start automatically.",
+                    "module_name": "play_best_song",
+                    "full_normalized_module_name": "AndroidDevice.playBestSong",
+                    "action_fields": []
+                }
+            ]
+        }
+    }
+}

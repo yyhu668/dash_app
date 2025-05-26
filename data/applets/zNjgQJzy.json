@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "zNjgQJzy",
+            "name": "Rain today? Don't forget an umbrella",
+            "description": "Rain today? Don't forget an umbrella",
+            "installs_count": 99797,
+            "friendly_id": "zNjgQJzy-rain-today-don-t-forget-an-umbrella",
+            "channels": [
+                {
+                    "name": "Weather Underground",
+                    "module_name": "weather",
+                    "short_name": "Weather",
+                    "brand_color": "1E2023"
+                },
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                }
+            ],
+            "trigger": {
+                "name": "Current condition changes to",
+                "description": "This Trigger monitors changes in the current weather condition. When one of those conditions is met the Trigger fires. Currently only these simple conditions are supported: Rain, Snow, Cloudy, Clear. ",
+                "module_name": "current_condition_is",
+                "full_normalized_module_name": "Weather.currentConditionIs",
+                "ingredients": [
+                    {
+                        "normalized_name": "Weather.currentConditionIs.TempFahrenheit",
+                        "value_type": "string",
+                        "slug": "temp_fahrenheit",
+                        "note": "The current temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.currentConditionIs.TempCelsius",
+                        "value_type": "string",
+                        "slug": "temp_celsius",
+                        "note": "The current temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.currentConditionIs.Condition",
+                        "value_type": "string",
+                        "slug": "condition",
+                        "note": "The current weather condition."
+                    },
+                    {
+                        "normalized_name": "Weather.currentConditionIs.ConditionImageURL",
+                        "value_type": "image_url",
+                        "slug": "condition_image_url",
+                        "note": "The URL to an image of the current condition."
+                    },
+                    {
+                        "normalized_name": "Weather.currentConditionIs.ForecastUrl",
+                        "value_type": "web_url",
+                        "slug": "forecast_url",
+                        "note": "The URL to a five day forecast for your location."
+                    },
+                    {
+                        "normalized_name": "Weather.currentConditionIs.CheckTime",
+                        "value_type": "datetime",
+                        "slug": "check_time",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

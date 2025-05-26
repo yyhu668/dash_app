@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "zj4e8TEW",
+            "name": "Update your Android wallpaper with new NASA photos",
+            "description": "Set your Android's wallpaper to NASA's image of the day.",
+            "installs_count": 115893,
+            "friendly_id": "zj4e8TEW-update-your-android-wallpaper-with-new-nasa-photos",
+            "channels": [
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                },
+                {
+                    "name": "Space",
+                    "module_name": "space",
+                    "short_name": "Space",
+                    "brand_color": "2E294E"
+                }
+            ],
+            "trigger": {
+                "name": "Astronomy picture of the day by NASA",
+                "description": "This Trigger fires every time NASA posts a new Astronomy Picture of the Day. ",
+                "module_name": "new_astronomy_picture_nasa",
+                "full_normalized_module_name": "Space.newAstronomyPictureNasa",
+                "ingredients": [
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.ImageTitle",
+                        "value_type": "string",
+                        "slug": "ImageTitle",
+                        "note": "The entry's title."
+                    },
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.ImageSourceURL",
+                        "value_type": "string",
+                        "slug": "ImageSourceURL",
+                        "note": "URL to the astronomy picture of the day."
+                    },
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.ExplanationHTML",
+                        "value_type": "string",
+                        "slug": "ExplanationHTML",
+                        "note": "The full description of the image as HTML."
+                    },
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.Explanation",
+                        "value_type": "string",
+                        "slug": "Explanation",
+                        "note": "The full description of the image as plain text."
+                    },
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.GalleryURL",
+                        "value_type": "string",
+                        "slug": "GalleryURL",
+                        "note": "The entry's URL."
+                    },
+                    {
+                        "normalized_name": "Space.newAstronomyPictureNasa.PublishedDate",
+                        "value_type": "string",
+                        "slug": "PublishedDate",
+                        "note": "Date entry was created."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Update device wallpaper",
+                    "description": "This Action will update the wallpaper on your Android device from the image URL you specify.",
+                    "module_name": "set_wallpaper",
+                    "full_normalized_module_name": "AndroidDevice.setWallpaper",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "PhotoUrl"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

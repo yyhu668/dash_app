@@ -1,0 +1,7 @@
+• Precise and well-defined data types: User ID (integer), Video ID (string), Comment ID (integer)
+• How data are collected: Through cookies, Through user interactions on the website, Through third-party services
+• The purpose of collection:, To personalize user experience, To improve video recommendations, To enable commenting and liking features
+• Security guarantees:, Data is encrypted in transit, Data is stored securely on servers, Regular security audits are performed
+• Usage of data:, Data is used to personalize user experience, Data is used to improve video recommendations, Data is used for advertising purposes
+• Control for the user over their data:, Users can opt-out of personalized ads, Users can delete their account and associated data, Users can request access to their data
+• Contact information for the user with link to it:, Email: [support@youtube.com](mailto:support@youtube.com), Phone: +1-650-253-0000

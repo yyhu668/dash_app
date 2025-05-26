@@ -1,0 +1,98 @@
+{
+    "data": {
+        "applet": {
+            "id": "Jb5YzAGn",
+            "name": "Get an email if it will rain tomorrow",
+            "description": "Don't get caught without an umbrella!",
+            "installs_count": 11213,
+            "friendly_id": "Jb5YzAGn-get-an-email-if-it-will-rain-tomorrow",
+            "channels": [
+                {
+                    "name": "Email",
+                    "module_name": "email",
+                    "short_name": "Email",
+                    "brand_color": "2468ff"
+                },
+                {
+                    "name": "Weather Underground",
+                    "module_name": "weather",
+                    "short_name": "Weather",
+                    "brand_color": "1E2023"
+                }
+            ],
+            "trigger": {
+                "name": "Tomorrow's forecast calls for",
+                "description": "This Trigger monitors changes in tomorrow\u2019s forecasted weather condition.",
+                "module_name": "tomorrows_forecast_calls_for",
+                "full_normalized_module_name": "Weather.tomorrowsForecastCallsFor",
+                "ingredients": [
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.TomorrowsCondition",
+                        "value_type": "string",
+                        "slug": "tomorrows_condition",
+                        "note": "The current weather condition."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.ConditionImageURL",
+                        "value_type": "image_url",
+                        "slug": "condition_image_url",
+                        "note": "The URL to an image of tomorrow's condition."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.HighTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "high_temp_fahrenheit",
+                        "note": "Tomorrow's high temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.HighTempCelsius",
+                        "value_type": "string",
+                        "slug": "high_temp_celsius",
+                        "note": "Tomorrow's high temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.LowTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "low_temp_fahrenheit",
+                        "note": "Tomorrow's low temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.LowTempCelsius",
+                        "value_type": "string",
+                        "slug": "low_temp_celsius",
+                        "note": "Tomorrow's low temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.TomorrowsDate",
+                        "value_type": "date",
+                        "slug": "tomorrows_date",
+                        "note": "Tomorrow's date."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.ForecastUrl",
+                        "value_type": "web_url",
+                        "slug": "forecast_url",
+                        "note": "The URL to a five day forecast for your location."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send me an email",
+                    "description": "This Action will send you an HTML based email. Images and links are supported.",
+                    "module_name": "send_me_email",
+                    "full_normalized_module_name": "Email.sendMeEmail",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Subject"
+                        },
+                        {
+                            "normalized_module_name": "Body"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

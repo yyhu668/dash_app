@@ -1,0 +1,119 @@
+{
+    "data": {
+        "applet": {
+            "id": "ZuRU4kzy",
+            "name": "Save new iOS Contacts to your Google Contacts",
+            "description": "This Applet will save any new iOS contact to your Google Contacts.",
+            "installs_count": 91603,
+            "friendly_id": "ZuRU4kzy-save-new-ios-contacts-to-your-google-contacts",
+            "channels": [
+                {
+                    "name": "iOS Contacts",
+                    "module_name": "ios_contacts",
+                    "short_name": "Contacts",
+                    "brand_color": "4CD964"
+                },
+                {
+                    "name": "Google Contacts",
+                    "module_name": "google_contacts",
+                    "short_name": "Google",
+                    "brand_color": "3cba54"
+                }
+            ],
+            "trigger": {
+                "name": "Any new contact",
+                "description": "This Trigger fires every time you add any new contact.",
+                "module_name": "new_contact_added",
+                "full_normalized_module_name": "IosContacts.newContactAdded",
+                "ingredients": [
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.Name",
+                        "value_type": "string",
+                        "slug": "Name",
+                        "note": "Name of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.PhoneNumber",
+                        "value_type": "string",
+                        "slug": "PhoneNumber",
+                        "note": "Phone number of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.Email",
+                        "value_type": "string",
+                        "slug": "Email",
+                        "note": "Email of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.Address",
+                        "value_type": "string",
+                        "slug": "Address",
+                        "note": "Address of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.Organization",
+                        "value_type": "string",
+                        "slug": "Organization",
+                        "note": "Organization of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.JobTitle",
+                        "value_type": "string",
+                        "slug": "JobTitle",
+                        "note": "Job title of the contact."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.DateAdded",
+                        "value_type": "string",
+                        "slug": "DateAdded",
+                        "note": "Date the contact was added to your address book."
+                    },
+                    {
+                        "normalized_name": "IosContacts.newContactAdded.Notes",
+                        "value_type": "string",
+                        "slug": "Notes",
+                        "note": "Any notes associated with the contact."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Create new contact",
+                    "description": "This Action will create a new contact in Google Contacts.",
+                    "module_name": "create_new_contact",
+                    "full_normalized_module_name": "GoogleContacts.createNewContact",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "FullName"
+                        },
+                        {
+                            "normalized_module_name": "WhichGroup"
+                        },
+                        {
+                            "normalized_module_name": "PhoneNumber"
+                        },
+                        {
+                            "normalized_module_name": "Email"
+                        },
+                        {
+                            "normalized_module_name": "Address"
+                        },
+                        {
+                            "normalized_module_name": "JobTitle"
+                        },
+                        {
+                            "normalized_module_name": "Company"
+                        },
+                        {
+                            "normalized_module_name": "Notes"
+                        },
+                        {
+                            "normalized_module_name": "UploadPhoto"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

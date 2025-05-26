@@ -1,0 +1,95 @@
+{
+    "data": {
+        "applet": {
+            "id": "G3Jj9eiZ",
+            "name": "Rain tomorrow? Get a mobile notification",
+            "description": "When the forecast calls for rain tomorrow in your area you'll get a push notification. Remember to bring an umbrella! ",
+            "installs_count": 24477,
+            "friendly_id": "G3Jj9eiZ-rain-tomorrow-get-a-mobile-notification",
+            "channels": [
+                {
+                    "name": "Weather Underground",
+                    "module_name": "weather",
+                    "short_name": "Weather",
+                    "brand_color": "1E2023"
+                },
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                }
+            ],
+            "trigger": {
+                "name": "Tomorrow's forecast calls for",
+                "description": "This Trigger monitors changes in tomorrow\u2019s forecasted weather condition.",
+                "module_name": "tomorrows_forecast_calls_for",
+                "full_normalized_module_name": "Weather.tomorrowsForecastCallsFor",
+                "ingredients": [
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.TomorrowsCondition",
+                        "value_type": "string",
+                        "slug": "tomorrows_condition",
+                        "note": "The current weather condition."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.ConditionImageURL",
+                        "value_type": "image_url",
+                        "slug": "condition_image_url",
+                        "note": "The URL to an image of tomorrow's condition."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.HighTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "high_temp_fahrenheit",
+                        "note": "Tomorrow's high temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.HighTempCelsius",
+                        "value_type": "string",
+                        "slug": "high_temp_celsius",
+                        "note": "Tomorrow's high temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.LowTempFahrenheit",
+                        "value_type": "string",
+                        "slug": "low_temp_fahrenheit",
+                        "note": "Tomorrow's low temperature in degrees Fahrenheit"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.LowTempCelsius",
+                        "value_type": "string",
+                        "slug": "low_temp_celsius",
+                        "note": "Tomorrow's low temperature in degrees Celsius"
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.TomorrowsDate",
+                        "value_type": "date",
+                        "slug": "tomorrows_date",
+                        "note": "Tomorrow's date."
+                    },
+                    {
+                        "normalized_name": "Weather.tomorrowsForecastCallsFor.ForecastUrl",
+                        "value_type": "web_url",
+                        "slug": "forecast_url",
+                        "note": "The URL to a five day forecast for your location."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

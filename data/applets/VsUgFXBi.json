@@ -1,0 +1,77 @@
+{
+    "data": {
+        "applet": {
+            "id": "VsUgFXBi",
+            "name": "Get a notification when the International Space Station passes over your home",
+            "description": "\"That's no moon.\"\r\nCenter the map on your home. ",
+            "installs_count": 93726,
+            "friendly_id": "VsUgFXBi-get-a-notification-when-the-international-space-station-passes-over-your-home",
+            "channels": [
+                {
+                    "name": "Notifications",
+                    "module_name": "if_notifications",
+                    "short_name": "Notification",
+                    "brand_color": "0099ff"
+                },
+                {
+                    "name": "Space",
+                    "module_name": "space",
+                    "short_name": "Space",
+                    "brand_color": "2E294E"
+                }
+            ],
+            "trigger": {
+                "name": "ISS passes over a specific location",
+                "description": "This Trigger fires every time the International Space Station passes over a location you specify. NOTE: the ISS completes 15.5 orbits per day.",
+                "module_name": "space_station_overhead_soon_nasa",
+                "full_normalized_module_name": "Space.spaceStationOverheadSoonNasa",
+                "ingredients": [
+                    {
+                        "normalized_name": "Space.spaceStationOverheadSoonNasa.AppearsAt",
+                        "value_type": "string",
+                        "slug": "AppearsAt",
+                        "note": "The time the ISS will appear overhead."
+                    },
+                    {
+                        "normalized_name": "Space.spaceStationOverheadSoonNasa.DisappearsAt",
+                        "value_type": "string",
+                        "slug": "DisappearsAt",
+                        "note": "The time the ISS will disappear overhead."
+                    },
+                    {
+                        "normalized_name": "Space.spaceStationOverheadSoonNasa.DurationSeconds",
+                        "value_type": "string",
+                        "slug": "DurationSeconds",
+                        "note": "The number of seconds the ISS will be overhead."
+                    },
+                    {
+                        "normalized_name": "Space.spaceStationOverheadSoonNasa.LocationMapImageUrl",
+                        "value_type": "string",
+                        "slug": "LocationMapImageUrl",
+                        "note": "The image of the map at this location."
+                    },
+                    {
+                        "normalized_name": "Space.spaceStationOverheadSoonNasa.LocationMapUrl",
+                        "value_type": "string",
+                        "slug": "LocationMapUrl",
+                        "note": "The link to the map at this location."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send a notification from the IFTTT app",
+                    "description": "This action will send a notification to your devices from the IFTTT app.",
+                    "module_name": "send_notification",
+                    "full_normalized_module_name": "IfNotifications.sendNotification",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

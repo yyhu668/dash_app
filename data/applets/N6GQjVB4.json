@@ -1,0 +1,77 @@
+{
+    "data": {
+        "applet": {
+            "id": "N6GQjVB4",
+            "name": "Text your lost Android phone to turn the ringer volume up 100%",
+            "description": "Text \"lostphone\" to your Android device and the ringer volume will be turned up to 100% \u2014 give it a call and you'll find it in no time! ",
+            "installs_count": 215489,
+            "friendly_id": "N6GQjVB4-text-your-lost-android-phone-to-turn-the-ringer-volume-up-100",
+            "channels": [
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                },
+                {
+                    "name": "Android SMS",
+                    "module_name": "android_messages",
+                    "short_name": "Android SMS",
+                    "brand_color": "1D9A59"
+                }
+            ],
+            "trigger": {
+                "name": "New SMS received matches search",
+                "description": "This Trigger fires every time you receive an SMS on your Android device that matches a search you specify.",
+                "module_name": "received_a_message_matching_search",
+                "full_normalized_module_name": "AndroidMessages.receivedAMessageMatchingSearch",
+                "ingredients": [
+                    {
+                        "normalized_name": "AndroidMessages.receivedAMessageMatchingSearch.ContactName",
+                        "value_type": "string",
+                        "slug": "ContactName",
+                        "note": "The contact name associated with the message."
+                    },
+                    {
+                        "normalized_name": "AndroidMessages.receivedAMessageMatchingSearch.Text",
+                        "value_type": "string",
+                        "slug": "Text",
+                        "note": "The text of the message"
+                    },
+                    {
+                        "normalized_name": "AndroidMessages.receivedAMessageMatchingSearch.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the message was received."
+                    },
+                    {
+                        "normalized_name": "AndroidMessages.receivedAMessageMatchingSearch.FromNumber",
+                        "value_type": "string",
+                        "slug": "FromNumber",
+                        "note": "The number that sent the message"
+                    },
+                    {
+                        "normalized_name": "AndroidMessages.receivedAMessageMatchingSearch.DeviceName",
+                        "value_type": "string",
+                        "slug": "device_name",
+                        "note": "The name of the device on which the event occurred."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Set ringtone volume",
+                    "description": "This Action will set the ringtone volume of your Android device.",
+                    "module_name": "set_device_volume",
+                    "full_normalized_module_name": "AndroidDevice.setDeviceVolume",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Volume"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

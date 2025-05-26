@@ -1,0 +1,98 @@
+{
+    "data": {
+        "applet": {
+            "id": "i8YQ3XsG",
+            "name": "Get an email with the latest IFTTT updates",
+            "description": "When the IFTTT Blog (ifttt.com/blog) publishes a new post, this Applet will send it to your inbox. Tips, data stories, new services, and more \u2014 be the first to know! \ud83d\udc4d",
+            "installs_count": 77205,
+            "friendly_id": "i8YQ3XsG-get-an-email-with-the-latest-ifttt-updates",
+            "channels": [
+                {
+                    "name": "RSS Feed",
+                    "module_name": "feed",
+                    "short_name": "RSS Feed",
+                    "brand_color": "EC7505"
+                },
+                {
+                    "name": "Email",
+                    "module_name": "email",
+                    "short_name": "Email",
+                    "brand_color": "2468ff"
+                }
+            ],
+            "trigger": {
+                "name": "New feed item",
+                "description": "This Trigger fires every time a new item is added to the feed you specify.",
+                "module_name": "new_feed_item",
+                "full_normalized_module_name": "Feed.newFeedItem",
+                "ingredients": [
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryTitle",
+                        "value_type": "string",
+                        "slug": "EntryTitle",
+                        "note": "The entry's title."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryUrl",
+                        "value_type": "string",
+                        "slug": "EntryUrl",
+                        "note": "The entry's URL."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryAuthor",
+                        "value_type": "string",
+                        "slug": "EntryAuthor",
+                        "note": "The entry's author name."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryContent",
+                        "value_type": "string",
+                        "slug": "EntryContent",
+                        "note": "The entry's content, may contain HTML."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryImageUrl",
+                        "value_type": "string",
+                        "slug": "EntryImageUrl",
+                        "note": "URL for the first image in the entry. If the entry doesn't have an image will point to a placeholder image."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.EntryPublished",
+                        "value_type": "string",
+                        "slug": "EntryPublished",
+                        "note": "Date entry was created."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.FeedTitle",
+                        "value_type": "string",
+                        "slug": "FeedTitle",
+                        "note": "The title of the feed."
+                    },
+                    {
+                        "normalized_name": "Feed.newFeedItem.FeedUrl",
+                        "value_type": "string",
+                        "slug": "FeedUrl",
+                        "note": "URL to the feed's regular page."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Send me an email",
+                    "description": "This Action will send you an HTML based email. Images and links are supported.",
+                    "module_name": "send_me_email",
+                    "full_normalized_module_name": "Email.sendMeEmail",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Subject"
+                        },
+                        {
+                            "normalized_module_name": "Body"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,7 @@
+• Precise and well-defined data types: Personal data, such as name, email address, and phone number, device information, such as device ID, model, and operating system version, location data, such as GPS coordinates and Wi-Fi MAC addresses
+• How data are collected: Through user interactions with the Android app or website, through device sensors, such as GPS and accelerometer, through third-party services, such as Google Analytics
+• The purpose of collection: To provide personalized experiences and recommendations, to improve the functionality and performance of the Android app or website, to comply with legal requirements and regulations
+• Security guarantees: Data is stored securely using encryption and access controls, data is protected against unauthorized access, use, or disclosure, data is deleted when no longer necessary for the intended purpose
+• The usage of data: To provide personalized experiences and recommendations, to improve the functionality and performance of the Android app or website, to comply with legal requirements and regulations
+• What's the control for the user on their data: Users can opt-out of data collection and processing, users can delete their account and associated data, users can request access to their personal data and correct any inaccuracies
+• Contact information for the user with a link to it: Email: [privacy@android.com](mailto:privacy@android.com), Phone: +1-800-ANDROID (1-800-266-7346)

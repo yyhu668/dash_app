@@ -1,0 +1,80 @@
+{
+    "data": {
+        "applet": {
+            "id": "LUxFA7ce",
+            "name": "Tweet your Instagrams as native photos on Twitter",
+            "description": "Instagram photos will show up in your Twitter feed as a full image rather than a link.",
+            "installs_count": 176028,
+            "friendly_id": "LUxFA7ce-tweet-your-instagrams-as-native-photos-on-twitter",
+            "channels": [
+                {
+                    "name": "Twitter",
+                    "module_name": "twitter",
+                    "short_name": "Twitter",
+                    "brand_color": "000000"
+                },
+                {
+                    "name": "Instagram",
+                    "module_name": "instagram",
+                    "short_name": "Instagram",
+                    "brand_color": "e4405f"
+                }
+            ],
+            "trigger": {
+                "name": "Any new photo by you",
+                "description": "This Trigger fires every time you share any new photo on Instagram.",
+                "module_name": "any_new_photo_by_you",
+                "full_normalized_module_name": "Instagram.anyNewPhotoByYou",
+                "ingredients": [
+                    {
+                        "normalized_name": "Instagram.anyNewPhotoByYou.Caption",
+                        "value_type": "string",
+                        "slug": "Caption",
+                        "note": ""
+                    },
+                    {
+                        "normalized_name": "Instagram.anyNewPhotoByYou.Url",
+                        "value_type": "string",
+                        "slug": "Url",
+                        "note": "The short URL to the photo's Instagram page."
+                    },
+                    {
+                        "normalized_name": "Instagram.anyNewPhotoByYou.SourceUrl",
+                        "value_type": "string",
+                        "slug": "SourceUrl",
+                        "note": "URL to the image file."
+                    },
+                    {
+                        "normalized_name": "Instagram.anyNewPhotoByYou.CreatedAt",
+                        "value_type": "string",
+                        "slug": "CreatedAt",
+                        "note": "Date and time the photo was taken."
+                    },
+                    {
+                        "normalized_name": "Instagram.anyNewPhotoByYou.EmbedCode",
+                        "value_type": "string",
+                        "slug": "EmbedCode",
+                        "note": "The HTML embed code for the photo."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Post a tweet with image",
+                    "description": "This Action will post a new tweet to your Twitter account with a linked pic.twitter.com image. NOTE: Please adhere to Twitter\u2019s Rules and Terms of Service. ",
+                    "module_name": "post_new_tweet_with_image",
+                    "full_normalized_module_name": "Twitter.postNewTweetWithImage",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Tweet"
+                        },
+                        {
+                            "normalized_module_name": "PhotoUrl"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

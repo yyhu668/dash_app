@@ -1,0 +1,7 @@
+• Precise and well-defined data types: Apple collects various types of personal data, including but not limited to name, email address, phone number, and location.
+• How data are collected: Apple collects data through various means, including but not limited to website interactions, app usage, and device information.
+• The purpose of collection: Apple collects data for various purposes, including but not limited to improving products and services, providing customer support, and sending marketing communications.
+• Security guarantees: Apple takes reasonable measures to protect personal data from unauthorized access, use, or disclosure.
+• Usage of data: Apple uses personal data for various purposes, including but not limited to improving products and services, providing customer support, and sending marketing communications.
+• Control for user on their data: Users have control over their personal data, including but not limited to the ability to opt-out of certain types of data collection or use.
+• Contact information for the user with link to it: Users can contact Apple through various means, including but not limited to email, phone, and online form.

@@ -1,0 +1,65 @@
+{
+    "data": {
+        "applet": {
+            "id": "eiNUGkv4",
+            "name": "Automatically turn up your Android phone's ringer when you leave work",
+            "description": "Center the map on your workplace. When you exit the area, your Android's ringtone volume will be turned up to 80%. ",
+            "installs_count": 24887,
+            "friendly_id": "eiNUGkv4-automatically-turn-up-your-android-phone-s-ringer-when-you-leave-work",
+            "channels": [
+                {
+                    "name": "Location",
+                    "module_name": "location",
+                    "short_name": "Location",
+                    "brand_color": "0099FF"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "You exit an area",
+                "description": "This Trigger fires every time you exit an area you specify.",
+                "module_name": "exit_region_location",
+                "full_normalized_module_name": "Location.exitRegionLocation",
+                "ingredients": [
+                    {
+                        "normalized_name": "Location.exitRegionLocation.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The time the event occurred."
+                    },
+                    {
+                        "normalized_name": "Location.exitRegionLocation.LocationMapImageUrl",
+                        "value_type": "image_url",
+                        "slug": "LocationMapImageUrl",
+                        "note": "The image of the map of this area."
+                    },
+                    {
+                        "normalized_name": "Location.exitRegionLocation.LocationMapUrl",
+                        "value_type": "web_url",
+                        "slug": "LocationMapUrl",
+                        "note": "The link to the map of this area."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Set ringtone volume",
+                    "description": "This Action will set the ringtone volume of your Android device.",
+                    "module_name": "set_device_volume",
+                    "full_normalized_module_name": "AndroidDevice.setDeviceVolume",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Volume"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

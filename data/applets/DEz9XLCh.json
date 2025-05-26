@@ -1,0 +1,83 @@
+{
+    "data": {
+        "applet": {
+            "id": "DEz9XLCh",
+            "name": "Get yourself out of an awkward situation (International)",
+            "description": "Run into someone that you really don't want to talk to? In a meeting that's dragging on far too long? This Applet offers a simple, discreet way to trigger a phone call to yourself so that you can politely excuse yourself from the situation.",
+            "installs_count": 59893,
+            "friendly_id": "DEz9XLCh-get-yourself-out-of-an-awkward-situation-international",
+            "channels": [
+                {
+                    "name": "VoIP Calls",
+                    "module_name": "voip_calls",
+                    "short_name": "VoIP Calls",
+                    "brand_color": "2468Ff"
+                },
+                {
+                    "name": "Button widget",
+                    "module_name": "do_button",
+                    "short_name": "Button",
+                    "brand_color": "ee4433"
+                }
+            ],
+            "trigger": {
+                "name": "Button press",
+                "description": "This trigger fires every time you press the button.",
+                "module_name": "do_button_new_command_common",
+                "full_normalized_module_name": "DoButton.doButtonNewCommandCommon",
+                "ingredients": [
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.ShareURL",
+                        "value_type": "string",
+                        "slug": "ShareURL",
+                        "note": "The link to the Share page for the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Latitude",
+                        "value_type": "string",
+                        "slug": "Latitude",
+                        "note": "The latitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.Longitude",
+                        "value_type": "string",
+                        "slug": "Longitude",
+                        "note": "The longitude of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapURL",
+                        "value_type": "string",
+                        "slug": "LocationMapURL",
+                        "note": "The link to the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.LocationMapImageURL",
+                        "value_type": "string",
+                        "slug": "LocationMapImageURL",
+                        "note": "The image of the map of the location of the button press."
+                    },
+                    {
+                        "normalized_name": "DoButton.doButtonNewCommandCommon.OccurredAt",
+                        "value_type": "datetime",
+                        "slug": "OccurredAt",
+                        "note": "The date and time you pressed the button."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Call my device",
+                    "description": "This action will call your device with the IFTTT app installed and speak a message provided by your Applet.",
+                    "module_name": "call_my_device",
+                    "full_normalized_module_name": "VoipCalls.callMyDevice",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

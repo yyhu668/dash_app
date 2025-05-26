@@ -1,0 +1,7 @@
+• Precise and well-defined data types: IFTTT collects user data such as email addresses, device information, and usage data.
+• How data are collected: Data are collected through user interactions with the platform, including creating and using applets, and through cookies and other tracking technologies.
+• The purpose of collection: The primary purpose of collecting data is to improve the user experience and provide personalized recommendations.
+• Security guarantees: IFTTT uses industry-standard security measures such as encryption and secure servers to protect user data.
+• Usage of data: Data are used to personalize applet suggestions, improve platform performance, and enhance overall user experience.
+• Control for the user on their data: Users have control over their data through options to delete or export it.
+• Contact information with a link to it: For more information about IFTTT's privacy policy, please visit https://ifttt.com/privacy-policy.

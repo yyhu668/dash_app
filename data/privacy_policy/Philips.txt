@@ -1,0 +1,7 @@
+• Precise and well-defined data types: The company collects personal data such as name, email address, and IP address.
+• How data are collected: Data are collected through various means including website interactions, customer support inquiries, and product usage.
+• The purpose of collection: Data are collected to improve products and services, provide customer support, and personalize user experience.
+• Security guarantees: Philips Hue ensures that personal data is stored securely using industry-standard encryption methods.
+• Usage of the data: Collected data may be shared with third-party service providers for processing and analysis.
+• Control for the user on their data: Users have the right to access, correct, or delete their personal data upon request.
+• Contact information for the user: Users can contact Philips Hue through their website (https://www.philips-hue.com/contact) or by sending an email to [philips-hue-privacy@signify.com](mailto:philips-hue-privacy@signify.com).

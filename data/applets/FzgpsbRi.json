@@ -1,0 +1,53 @@
+{
+    "data": {
+        "applet": {
+            "id": "FzgpsbRi",
+            "name": "Unmute your Android phone's ringer every morning",
+            "description": "Unmute your Android phone's ringer every morning",
+            "installs_count": 31187,
+            "friendly_id": "FzgpsbRi-unmute-your-android-phone-s-ringer-every-morning",
+            "channels": [
+                {
+                    "name": "Date & Time",
+                    "module_name": "date_and_time",
+                    "short_name": "Date Time",
+                    "brand_color": "333333"
+                },
+                {
+                    "name": "Android Device",
+                    "module_name": "android_device",
+                    "short_name": "Device",
+                    "brand_color": "8CC251"
+                }
+            ],
+            "trigger": {
+                "name": "Every day at",
+                "description": "This Trigger fires every single day at a specific time set by you.",
+                "module_name": "every_day_at",
+                "full_normalized_module_name": "DateAndTime.everyDayAt",
+                "ingredients": [
+                    {
+                        "normalized_name": "DateAndTime.everyDayAt.CheckTime",
+                        "value_type": "string",
+                        "slug": "CheckTime",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Set ringtone volume",
+                    "description": "This Action will set the ringtone volume of your Android device.",
+                    "module_name": "set_device_volume",
+                    "full_normalized_module_name": "AndroidDevice.setDeviceVolume",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Volume"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

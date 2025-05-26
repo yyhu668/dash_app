@@ -1,0 +1,68 @@
+{
+    "data": {
+        "applet": {
+            "id": "v45AcbMH",
+            "name": "Organize iPhone screenshots into their own album",
+            "description": "Organize iPhone screenshots into their own album",
+            "installs_count": 72982,
+            "friendly_id": "v45AcbMH-organize-iphone-screenshots-into-their-own-album",
+            "channels": [
+                {
+                    "name": "iOS Photos",
+                    "module_name": "ios_photos",
+                    "short_name": "Photos",
+                    "brand_color": "e8655c"
+                }
+            ],
+            "trigger": {
+                "name": "New screenshot",
+                "description": "This Trigger fires every time you take a screenshot.",
+                "module_name": "ios_new_screenshot",
+                "full_normalized_module_name": "IosPhotos.iosNewScreenshot",
+                "ingredients": [
+                    {
+                        "normalized_name": "IosPhotos.iosNewScreenshot.TemporaryPublicPhotoURL",
+                        "value_type": "image_url",
+                        "slug": "TemporaryPublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit for 30 days."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.iosNewScreenshot.PublicPhotoURL",
+                        "value_type": "string",
+                        "slug": "PublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.iosNewScreenshot.AlbumName",
+                        "value_type": "string",
+                        "slug": "AlbumName",
+                        "note": "The photo album on your phone that you saved the photo to."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.iosNewScreenshot.TakenDate",
+                        "value_type": "string",
+                        "slug": "TakenDate",
+                        "note": "The time the photo was taken."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Add photo to album",
+                    "description": "This Action will save a new photo to the album you specify.",
+                    "module_name": "create_photo_ios_photos",
+                    "full_normalized_module_name": "IosPhotos.createPhotoIosPhotos",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "PhotoUrl"
+                        },
+                        {
+                            "normalized_module_name": "Album"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

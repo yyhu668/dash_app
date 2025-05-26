@@ -1,0 +1,77 @@
+{
+    "data": {
+        "applet": {
+            "id": "QrdtFv5E",
+            "name": "Automatically back up your new iOS photos to Google Drive",
+            "description": "Archive all your new iOS Photos to a folder on Google Drive. Never lose a pic again! ",
+            "installs_count": 10920,
+            "friendly_id": "QrdtFv5E-automatically-back-up-your-new-ios-photos-to-google-drive",
+            "channels": [
+                {
+                    "name": "iOS Photos",
+                    "module_name": "ios_photos",
+                    "short_name": "Photos",
+                    "brand_color": "e8655c"
+                },
+                {
+                    "name": "Google Drive",
+                    "module_name": "google_drive",
+                    "short_name": "Google",
+                    "brand_color": "23448b"
+                }
+            ],
+            "trigger": {
+                "name": "Any new photo",
+                "description": "This Trigger fires every time a new photo is added to your camera roll.",
+                "module_name": "new_photo_in_camera_roll",
+                "full_normalized_module_name": "IosPhotos.newPhotoInCameraRoll",
+                "ingredients": [
+                    {
+                        "normalized_name": "IosPhotos.newPhotoInCameraRoll.TemporaryPublicPhotoURL",
+                        "value_type": "image_url",
+                        "slug": "TemporaryPublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit for 30 days."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.newPhotoInCameraRoll.PublicPhotoURL",
+                        "value_type": "string",
+                        "slug": "PublicPhotoURL",
+                        "note": "A public URL to the photo that anyone can visit."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.newPhotoInCameraRoll.AlbumName",
+                        "value_type": "string",
+                        "slug": "AlbumName",
+                        "note": "The photo album on your phone that you saved the photo to."
+                    },
+                    {
+                        "normalized_name": "IosPhotos.newPhotoInCameraRoll.TakenDate",
+                        "value_type": "string",
+                        "slug": "TakenDate",
+                        "note": "The time the photo was taken."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Upload file from URL",
+                    "description": "This action will download a file at a given URL and add it to Google Drive at the path you specify. NOTE: 100 MB file size limit.\r\n",
+                    "module_name": "upload_file_from_url_google_drive",
+                    "full_normalized_module_name": "GoogleDrive.uploadFileFromUrlGoogleDrive",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Url"
+                        },
+                        {
+                            "normalized_module_name": "Filename"
+                        },
+                        {
+                            "normalized_module_name": "Path"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

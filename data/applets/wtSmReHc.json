@@ -1,0 +1,53 @@
+{
+    "data": {
+        "applet": {
+            "id": "wtSmReHc",
+            "name": "Keep Google Voice Active",
+            "description": "Keep Google Voice Active",
+            "installs_count": -6168,
+            "friendly_id": "wtSmReHc-keep-google-voice-active",
+            "channels": [
+                {
+                    "name": "Date & Time",
+                    "module_name": "date_and_time",
+                    "short_name": "Date Time",
+                    "brand_color": "333333"
+                },
+                {
+                    "name": "Phone Call (US only)",
+                    "module_name": "phone_call",
+                    "short_name": "Phone",
+                    "brand_color": "2468FF"
+                }
+            ],
+            "trigger": {
+                "name": "Every month on the",
+                "description": "This Trigger fires every month on the day and time you specify.",
+                "module_name": "every_month_on_the",
+                "full_normalized_module_name": "DateAndTime.everyMonthOnThe",
+                "ingredients": [
+                    {
+                        "normalized_name": "DateAndTime.everyMonthOnThe.CheckTime",
+                        "value_type": "string",
+                        "slug": "CheckTime",
+                        "note": "Date and time this trigger was checked."
+                    }
+                ]
+            },
+            "applet_queries": [],
+            "actions": [
+                {
+                    "name": "Call my phone",
+                    "description": "This Action will call your phone number and say a message.",
+                    "module_name": "call_my_phone",
+                    "full_normalized_module_name": "PhoneCall.callMyPhone",
+                    "action_fields": [
+                        {
+                            "normalized_module_name": "Message"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
