@@ -1,6 +1,5 @@
 from library import *
 
-
 # DATA
 url = 'https://ifttt.com/explore/top-applets-on-ifttt'
 ids = get_applets_number(url)
@@ -60,6 +59,8 @@ app.layout = create_dash_layout(edge_trace, node_trace, annotations)
 )
 def callback(clickData):
     return display_node_info(G, clickData, graph_info)
+
+server = app.server
 
 if __name__ == '__main__':
     app.run(debug=True)
