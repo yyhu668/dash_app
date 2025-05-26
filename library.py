@@ -14,14 +14,6 @@ import os
 from dash import html, dcc, Output, Input, Dash
 import plotly.graph_objects as go
 
-### REQUIREMENTS FOR MCP
-import asyncio
-from dotenv import load_dotenv
-from langchain_ollama import ChatOllama
-from mcp_use import MCPAgent, MCPClient
-from time import time
-
-
 
 ### SCRAPER
 def get_applets_number(url):
@@ -600,48 +592,3 @@ def display_node_info(G, clickData, graph_info):
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
-
-### MCP
-async def mcp_main(service):
-    await asyncio.sleep(5)  # wait for the LLM and MCP server to start
-    load_dotenv()
-    config = {"mcpServers": {"http": {"url": "http://localhost:8931/sse"}}}
-    client = MCPClient.from_dict(config)
-
-    llm = ChatOllama(model="llama3.1", temperature=0)
-    agent = MCPAgent(llm=llm, client=client, max_steps=30)
-
-    #service = 'IFTTT'
-    query = f"""Please find the privacy policy page of {service},
-                                and give me a summary of that privacy policy in a few sentences containing: 
-                                - precise and well defined data types, 
-                                - how data are collected, 
-                                - the purpose of collection, 
-                                - the security guarantees, 
-                                - the usage of the data, 
-                                - what's the control for the user on their data, 
-                                - and what's the contact information for the user with the link to it,
-                                Please give me just the final answer in a string format using "FINAL ANSWER" to start it, with bullets for each point I've asked."""
-
-    #async for chunk in agent.astream(query):
-    #    print('\nCHUNK MESSAGE:', chunk, end="", flush=True)
-
-    result = await agent.run(query)
-    
-    print(f"\nResult: {result}")
-    
-
-### MCP EXAMPLE
-"""
-https://github.com/mcp-use/mcp-use/tree/1f1c1f7a33aaab1889c769e004fd9144047c09a3
-conda activate mcp
-npx @playwright/mcp@latest --port 8931 - https://github.com/microsoft/playwright-mcp (no installation needed).
-ollama run llama3.1
-python privacy_policies.py
-"""
-# if __name__ == "__main__":
-#     service = 'Spotify'
-#     start = time()
-#     asyncio.run(mcp_main(service))
-#     end = time()
-#     print(f"Execution time: {end - start:.2f} seconds")
