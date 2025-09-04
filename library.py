@@ -459,55 +459,76 @@ def create_node_trace(G, pos):
 
 def create_dash_layout(edge_trace, node_trace, annotations):
     return html.Div([
-        html.H2("IFTTT Graph: Trigger → Action", style={"textAlign": "center"}),
-        
-        # Main content area with graph and click history
+        # Navigation header
         html.Div([
-            # Network graph (left side)
+            html.H2("IFTTT Graph: Trigger → Action", style={"textAlign": "center", "margin": "10px 0", "color": "#333"}),
             html.Div([
-                dcc.Graph(
-                    id='network-graph',
-                    figure={
-                        'data': edge_trace + [node_trace],
-                        'layout': go.Layout(
-                            clickmode='event+select',
-                            showlegend=False,
-                            margin=dict(l=20, r=20, t=20, b=20),
-                            hovermode='closest',
-                            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                            annotations=annotations
-                        )
-                    },
-                    style={"height": "600px"}
-                ),
-            ], style={"width": "70%", "display": "inline-block", "verticalAlign": "top"}),
-            
-            # Click history panel (right side)
-            html.Div([
-                html.H3("Click History", style={"textAlign": "center", "margin": "10px 0"}),
-                html.Div([
-                    html.Button("Clear History", id="clear-history-btn", 
-                              style={"width": "100%", "marginBottom": "10px", 
-                                   "backgroundColor": "#f44336", "color": "white", 
-                                   "border": "none", "padding": "8px", "cursor": "pointer"}),
-                    html.Div(id="click-history-list", 
-                           style={"maxHeight": "500px", "overflowY": "auto", 
-                                "border": "1px solid #ddd", "padding": "10px", 
-                                "backgroundColor": "#f9f9f9"})
-                ])
-            ], style={"width": "28%", "display": "inline-block", "verticalAlign": "top", 
-                     "marginLeft": "2%", "padding": "10px"})
-            
-        ], style={"display": "flex", "width": "100%"}),
+                html.Button("📊 Network Graph", id="graph-tab-btn", 
+                          style={"padding": "10px 20px", "margin": "5px", "backgroundColor": "#007bff", 
+                                "color": "white", "border": "none", "borderRadius": "5px", "cursor": "pointer"}),
+                html.Button("📈 Analytics Dashboard", id="analytics-tab-btn", 
+                          style={"padding": "10px 20px", "margin": "5px", "backgroundColor": "#6c757d", 
+                                "color": "white", "border": "none", "borderRadius": "5px", "cursor": "pointer"})
+            ], style={"textAlign": "center", "marginBottom": "20px"})
+        ]),
         
-        # Node information panel (bottom)
-        html.Div(id='node-info', style={"padding": "20px", "fontSize": "16px", 
-                                       "border": "1px solid #ddd", "marginTop": "20px",
-                                       "backgroundColor": "#f5f5f5"}),
+        # Main content area (will be switched between graph and analytics)
+        html.Div(id="main-content", children=[
+            # Network Graph View (default)
+            html.Div([
+                # Main content area with graph and click history
+                html.Div([
+                    # Network graph (left side)
+                    html.Div([
+                        dcc.Graph(
+                            id='network-graph',
+                            figure={
+                                'data': edge_trace + [node_trace],
+                                'layout': go.Layout(
+                                    clickmode='event+select',
+                                    showlegend=False,
+                                    margin=dict(l=20, r=20, t=20, b=20),
+                                    hovermode='closest',
+                                    xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                                    yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                                    annotations=annotations
+                                )
+                            },
+                            style={"height": "600px"}
+                        ),
+                    ], style={"width": "60%", "display": "inline-block", "verticalAlign": "top"}),
+                    
+                    # Detailed click history panel (right side)
+                    html.Div([
+                        html.H3("📊 Click Analytics", style={"textAlign": "center", "margin": "10px 0", "color": "#333"}),
+                        html.Div([
+                            html.Button("🗑️ Clear History", id="clear-history-btn", 
+                                      style={"width": "100%", "marginBottom": "15px", 
+                                           "backgroundColor": "#dc3545", "color": "white", 
+                                           "border": "none", "padding": "10px", "cursor": "pointer",
+                                           "borderRadius": "5px", "fontSize": "14px", "fontWeight": "bold"}),
+                            html.Div(id="click-history-list", 
+                                   style={"maxHeight": "520px", "overflowY": "auto", 
+                                        "border": "1px solid #dee2e6", "padding": "10px", 
+                                        "backgroundColor": "#f8f9fa", "borderRadius": "5px"})
+                        ])
+                    ], style={"width": "38%", "display": "inline-block", "verticalAlign": "top", 
+                             "marginLeft": "2%", "padding": "10px"})
+                    
+                ], style={"display": "flex", "width": "100%"}),
+                
+                # Node information panel (bottom)
+                html.Div(id='node-info', style={"padding": "20px", "fontSize": "16px", 
+                                               "border": "1px solid #ddd", "marginTop": "20px",
+                                               "backgroundColor": "#f5f5f5"})
+            ], id="graph-view")
+        ]),
         
         # Hidden div to store click history data
-        html.Div(id='click-history-store', style={'display': 'none'})
+        html.Div(id='click-history-store', style={'display': 'none'}),
+        
+        # Hidden div to store current view state
+        html.Div(id='current-view', children='graph', style={'display': 'none'})
     ])
 
 def display_node_info(G, clickData, graph_info):
@@ -590,9 +611,18 @@ def display_node_info(G, clickData, graph_info):
 ])
 
 def update_click_history(click_history_json, clickData):
-    """Update click history with new click data"""
+    """Update click history with detailed tracking information"""
     import json
+    import socket
+    import platform
     from datetime import datetime
+    
+    # Try to import psutil for system monitoring, fall back gracefully if not available
+    try:
+        import psutil
+        PSUTIL_AVAILABLE = True
+    except ImportError:
+        PSUTIL_AVAILABLE = False
     
     # Parse existing history
     if click_history_json:
@@ -603,43 +633,464 @@ def update_click_history(click_history_json, clickData):
     # Add new click if valid
     if clickData and 'customdata' in clickData['points'][0]:
         node = clickData['points'][0]['customdata']
-        timestamp = datetime.now().strftime("%H:%M:%S")
         
-        # Add to history (limit to last 10 clicks)
-        click_history.append({"node": node, "time": timestamp})
-        if len(click_history) > 10:
-            click_history = click_history[-10:]
+        # Collect detailed tracking information
+        now = datetime.now()
+        
+        # Get system information
+        try:
+            hostname = socket.gethostname()
+            local_ip = socket.gethostbyname(hostname)
+        except:
+            hostname = "Unknown"
+            local_ip = "127.0.0.1"
+        
+        # Get server/system status (if psutil is available)
+        if PSUTIL_AVAILABLE:
+            try:
+                cpu_usage = round(psutil.cpu_percent(interval=0.1), 1)
+                memory = psutil.virtual_memory()
+                memory_usage = round(memory.percent, 1)
+                if platform.system() == 'Windows':
+                    disk_usage = round(psutil.disk_usage('C:\\').percent, 1)
+                else:
+                    disk_usage = round(psutil.disk_usage('/').percent, 1)
+            except:
+                cpu_usage = "N/A"
+                memory_usage = "N/A"
+                disk_usage = "N/A"
+        else:
+            cpu_usage = "N/A (psutil not available)"
+            memory_usage = "N/A (psutil not available)"
+            disk_usage = "N/A (psutil not available)"
+        
+        # Create detailed click record
+        click_record = {
+            "node": node,
+            "timestamp": now.isoformat(),
+            "time_display": now.strftime("%H:%M:%S"),
+            "date_display": now.strftime("%Y-%m-%d"),
+            "hostname": hostname,
+            "local_ip": local_ip,
+            "user_agent": platform.platform(),
+            "system_info": {
+                "os": platform.system(),
+                "os_version": platform.version(),
+                "python_version": platform.python_version(),
+                "cpu_usage": cpu_usage,
+                "memory_usage": memory_usage,
+                "disk_usage": disk_usage,
+                "psutil_available": PSUTIL_AVAILABLE
+            },
+            "session_info": {
+                "click_number": len(click_history) + 1,
+                "browser_session": "Dash Local Server",
+                "total_session_clicks": len(click_history) + 1
+            },
+            "coordinates": {
+                "x": clickData['points'][0].get('x', 'N/A'),
+                "y": clickData['points'][0].get('y', 'N/A')
+            },
+            "server_status": "Active" if PSUTIL_AVAILABLE else "Limited Monitoring"
+        }
+        
+        # Add to history (limit to last 15 clicks for detailed tracking)
+        click_history.append(click_record)
+        if len(click_history) > 15:
+            click_history = click_history[-15:]
     
     return json.dumps(click_history)
 
 def render_click_history(click_history_json):
-    """Render click history as HTML components"""
+    """Render detailed click history as HTML components"""
     import json
     
     if not click_history_json:
-        return html.P("No clicks yet. Click on a node to start tracking!", 
+        return html.P("No clicks yet. Click on a node to start detailed tracking!", 
                      style={"textAlign": "center", "color": "#666", "fontStyle": "italic"})
     
     click_history = json.loads(click_history_json)
     
     if not click_history:
-        return html.P("No clicks yet. Click on a node to start tracking!", 
+        return html.P("No clicks yet. Click on a node to start detailed tracking!", 
                      style={"textAlign": "center", "color": "#666", "fontStyle": "italic"})
     
     history_items = []
     for i, item in enumerate(reversed(click_history)):  # Show most recent first
-        history_items.append(
+        
+        # Get system status color coding
+        cpu_color = "#28a745" if isinstance(item.get("system_info", {}).get("cpu_usage"), (int, float)) and item["system_info"]["cpu_usage"] < 70 else "#dc3545"
+        memory_color = "#28a745" if isinstance(item.get("system_info", {}).get("memory_usage"), (int, float)) and item["system_info"]["memory_usage"] < 80 else "#dc3545"
+        
+        # Create detailed information card
+        detail_card = html.Div([
+            # Main click info
+            html.Div([
+                html.Span(f"{len(click_history)-i}. ", style={"fontWeight": "bold", "color": "#007bff", "fontSize": "16px"}),
+                html.Span(item["node"], style={"fontWeight": "bold", "fontSize": "16px", "color": "#333"}),
+                html.Span(f" • {item['time_display']}", style={"fontSize": "14px", "color": "#666", "marginLeft": "10px"})
+            ], style={"marginBottom": "8px"}),
+            
+            # Detailed tracking information
             html.Div([
                 html.Div([
-                    html.Span(f"{len(click_history)-i}. ", style={"fontWeight": "bold", "color": "#007bff"}),
-                    html.Span(item["node"], style={"fontWeight": "bold"}),
-                    html.Span(f" at {item['time']}", style={"fontSize": "12px", "color": "#666"})
-                ], style={"padding": "5px", "backgroundColor": "white" if i % 2 == 0 else "#f0f0f0", 
-                         "border": "1px solid #ddd", "marginBottom": "2px", "borderRadius": "3px"})
-            ])
-        )
+                    html.Span("📅 ", style={"marginRight": "5px"}),
+                    html.Span(f"Date: {item['date_display']}", style={"fontSize": "12px"})
+                ], style={"marginBottom": "3px"}),
+                
+                html.Div([
+                    html.Span("🌐 ", style={"marginRight": "5px"}),
+                    html.Span(f"IP: {item.get('local_ip', 'N/A')}", style={"fontSize": "12px"}),
+                    html.Span(f" | Host: {item.get('hostname', 'N/A')}", style={"fontSize": "12px", "marginLeft": "10px"})
+                ], style={"marginBottom": "3px"}),
+                
+                html.Div([
+                    html.Span("💻 ", style={"marginRight": "5px"}),
+                    html.Span(f"OS: {item.get('system_info', {}).get('os', 'N/A')}", style={"fontSize": "12px"})
+                ], style={"marginBottom": "3px"}),
+                
+                html.Div([
+                    html.Span("📊 Server Status: ", style={"fontSize": "12px", "fontWeight": "bold"}),
+                    html.Span(f"{item.get('server_status', 'Unknown')}", 
+                             style={"fontSize": "12px", "color": "#28a745" if item.get('server_status') == 'Active' else "#ffc107", 
+                                   "marginRight": "10px", "fontWeight": "bold"}),
+                    html.Br(),
+                    html.Span("  CPU: ", style={"fontSize": "11px", "marginLeft": "20px"}),
+                    html.Span(f"{item.get('system_info', {}).get('cpu_usage', 'N/A')}" + ("%" if isinstance(item.get('system_info', {}).get('cpu_usage'), (int, float)) else ""), 
+                             style={"fontSize": "11px", "color": cpu_color, "marginRight": "8px"}),
+                    html.Span("RAM: ", style={"fontSize": "11px"}),
+                    html.Span(f"{item.get('system_info', {}).get('memory_usage', 'N/A')}" + ("%" if isinstance(item.get('system_info', {}).get('memory_usage'), (int, float)) else ""), 
+                             style={"fontSize": "11px", "color": memory_color, "marginRight": "8px"}),
+                    html.Span("Disk: ", style={"fontSize": "11px"}),
+                    html.Span(f"{item.get('system_info', {}).get('disk_usage', 'N/A')}" + ("%" if isinstance(item.get('system_info', {}).get('disk_usage'), (int, float)) else ""), 
+                             style={"fontSize": "11px", "color": "#6c757d"})
+                ], style={"marginBottom": "3px"}),
+                
+                html.Div([
+                    html.Span("🐍 ", style={"marginRight": "5px"}),
+                    html.Span(f"Python: {item.get('system_info', {}).get('python_version', 'N/A')}", style={"fontSize": "12px"}),
+                    html.Span(f" | {item.get('system_info', {}).get('os', 'N/A')}", style={"fontSize": "12px", "marginLeft": "10px"})
+                ], style={"marginBottom": "3px"}),
+                
+                html.Div([
+                    html.Span("📍 ", style={"marginRight": "5px"}),
+                    html.Span(f"Position: ({item.get('coordinates', {}).get('x', 'N/A'):.2f}, {item.get('coordinates', {}).get('y', 'N/A'):.2f})" 
+                             if isinstance(item.get('coordinates', {}).get('x'), (int, float)) else "Position: N/A", 
+                             style={"fontSize": "12px"}),
+                    html.Span(f" | Click #{item.get('session_info', {}).get('click_number', i+1)}", 
+                             style={"fontSize": "12px", "marginLeft": "10px", "color": "#6c757d"})
+                ], style={"marginBottom": "5px"})
+                
+            ], style={"paddingLeft": "20px", "borderLeft": "3px solid #007bff", "marginLeft": "10px"})
+            
+        ], style={
+            "padding": "12px", 
+            "backgroundColor": "white" if i % 2 == 0 else "#f8f9fa", 
+            "border": "1px solid #dee2e6", 
+            "marginBottom": "5px", 
+            "borderRadius": "5px",
+            "boxShadow": "0 1px 3px rgba(0,0,0,0.1)"
+        })
+        
+        history_items.append(detail_card)
     
-    return html.Div(history_items)
+    return html.Div([
+        html.Div([
+            html.H4("🕒 Detailed Click History", style={"margin": "0 0 10px 0", "color": "#333"}),
+            html.P(f"Tracking {len(click_history)} recent interactions", 
+                  style={"margin": "0 0 15px 0", "fontSize": "12px", "color": "#6c757d"})
+        ]),
+        html.Div(history_items, style={"maxHeight": "400px", "overflowY": "auto"})
+    ])
+
+def analyze_user_preferences(click_history_json, G):
+    """Analyze user preferences based on click history"""
+    import json
+    from collections import Counter, defaultdict
+    from datetime import datetime
+    import statistics
+    
+    if not click_history_json:
+        return None
+    
+    click_history = json.loads(click_history_json)
+    if not click_history:
+        return None
+    
+    # Extract click data
+    clicked_nodes = [item['node'] for item in click_history]
+    click_times = [datetime.fromisoformat(item['timestamp']) for item in click_history]
+    
+    # Basic statistics
+    total_clicks = len(click_history)
+    unique_nodes = len(set(clicked_nodes))
+    most_clicked = Counter(clicked_nodes).most_common(5)
+    
+    # Time analysis
+    if len(click_times) > 1:
+        time_intervals = [(click_times[i] - click_times[i-1]).total_seconds() 
+                         for i in range(1, len(click_times))]
+        avg_interval = statistics.mean(time_intervals) if time_intervals else 0
+        session_duration = (click_times[-1] - click_times[0]).total_seconds()
+    else:
+        avg_interval = 0
+        session_duration = 0
+    
+    # Category analysis
+    category_counts = defaultdict(int)
+    service_connections = defaultdict(int)
+    
+    for node in clicked_nodes:
+        if node in G.nodes:
+            # Get category information
+            category = G.nodes[node].get('category', 'Unknown')
+            category_counts[category] += 1
+            
+            # Get connection count (popularity)
+            connections = G.degree(node)
+            service_connections[node] = connections
+    
+    # User behavior patterns
+    exploration_score = unique_nodes / total_clicks if total_clicks > 0 else 0
+    focus_score = 1 - exploration_score
+    
+    # Predict preferences
+    preferred_categories = sorted(category_counts.items(), key=lambda x: x[1], reverse=True)[:3]
+    preferred_services = [node for node, count in most_clicked[:3]]
+    
+    # Activity pattern
+    if avg_interval < 5:
+        activity_pattern = "Fast Explorer"
+    elif avg_interval < 15:
+        activity_pattern = "Steady Browser"
+    else:
+        activity_pattern = "Careful Researcher"
+    
+    return {
+        'total_clicks': total_clicks,
+        'unique_nodes': unique_nodes,
+        'most_clicked': most_clicked,
+        'preferred_categories': preferred_categories,
+        'preferred_services': preferred_services,
+        'exploration_score': exploration_score,
+        'focus_score': focus_score,
+        'avg_interval': avg_interval,
+        'session_duration': session_duration,
+        'activity_pattern': activity_pattern,
+        'category_distribution': dict(category_counts),
+        'service_connections': dict(service_connections)
+    }
+
+def create_analytics_page(click_history_json, G, graph_info):
+    """Create comprehensive analytics page with plots and predictions"""
+    import json
+    import plotly.graph_objects as go
+    import plotly.express as px
+    from datetime import datetime
+    
+    analysis = analyze_user_preferences(click_history_json, G)
+    
+    if not analysis:
+        return html.Div([
+            html.H2("📊 User Analytics Dashboard", style={"textAlign": "center", "margin": "20px 0"}),
+            html.P("No click data available yet. Start exploring the network to see analytics!", 
+                  style={"textAlign": "center", "fontSize": "18px", "color": "#666"})
+        ])
+    
+    # Create visualizations
+    
+    # 1. Most Clicked Services Bar Chart
+    if analysis['most_clicked']:
+        services, counts = zip(*analysis['most_clicked'])
+        fig_services = go.Figure(data=[
+            go.Bar(x=list(services), y=list(counts), 
+                  marker_color=['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'])
+        ])
+        fig_services.update_layout(
+            title="🎯 Most Clicked Services",
+            xaxis_title="Services",
+            yaxis_title="Number of Clicks",
+            height=300
+        )
+    else:
+        fig_services = go.Figure()
+    
+    # 2. Category Distribution Pie Chart
+    if analysis['category_distribution']:
+        categories = list(analysis['category_distribution'].keys())
+        values = list(analysis['category_distribution'].values())
+        
+        fig_categories = go.Figure(data=[
+            go.Pie(labels=categories, values=values, hole=0.3)
+        ])
+        fig_categories.update_layout(
+            title="📂 Service Category Preferences",
+            height=300
+        )
+    else:
+        fig_categories = go.Figure()
+    
+    # 3. User Behavior Radar Chart
+    behavior_metrics = {
+        'Exploration': analysis['exploration_score'] * 100,
+        'Focus': analysis['focus_score'] * 100,
+        'Activity': min(100, (60 / max(analysis['avg_interval'], 1)) * 20),
+        'Engagement': min(100, analysis['total_clicks'] * 5),
+        'Diversity': min(100, analysis['unique_nodes'] * 10)
+    }
+    
+    fig_radar = go.Figure()
+    fig_radar.add_trace(go.Scatterpolar(
+        r=list(behavior_metrics.values()),
+        theta=list(behavior_metrics.keys()),
+        fill='toself',
+        name='User Profile'
+    ))
+    fig_radar.update_layout(
+        polar=dict(
+            radialaxis=dict(visible=True, range=[0, 100])
+        ),
+        title="🎭 User Behavior Profile",
+        height=300
+    )
+    
+    # 4. Click Timeline
+    if click_history_json:
+        click_history = json.loads(click_history_json)
+        times = [datetime.fromisoformat(item['timestamp']) for item in click_history]
+        nodes = [item['node'] for item in click_history]
+        
+        fig_timeline = go.Figure()
+        fig_timeline.add_trace(go.Scatter(
+            x=times,
+            y=list(range(len(times))),
+            mode='markers+lines',
+            text=nodes,
+            marker=dict(size=10, color='#45b7d1'),
+            line=dict(color='#45b7d1', width=2)
+        ))
+        fig_timeline.update_layout(
+            title="⏰ Click Timeline",
+            xaxis_title="Time",
+            yaxis_title="Click Sequence",
+            height=300
+        )
+    else:
+        fig_timeline = go.Figure()
+    
+    # Create layout
+    return html.Div([
+        # Header
+        html.Div([
+            html.H1("📊 User Analytics Dashboard", 
+                   style={"textAlign": "center", "margin": "20px 0", "color": "#333"}),
+            html.P(f"Analysis based on {analysis['total_clicks']} interactions with {analysis['unique_nodes']} unique services",
+                   style={"textAlign": "center", "fontSize": "16px", "color": "#666", "marginBottom": "30px"})
+        ]),
+        
+        # Key Metrics Cards
+        html.Div([
+            html.Div([
+                html.H3("🎯 Behavior Pattern", style={"margin": "0 0 10px 0", "color": "#333"}),
+                html.H2(analysis['activity_pattern'], style={"margin": "0", "color": "#007bff"}),
+                html.P(f"Avg. interval: {analysis['avg_interval']:.1f}s", style={"margin": "5px 0 0 0", "color": "#666"})
+            ], className="metric-card", style={
+                "backgroundColor": "#f8f9fa", "padding": "20px", "borderRadius": "10px",
+                "textAlign": "center", "border": "1px solid #dee2e6", "width": "22%", "display": "inline-block", "margin": "1%"
+            }),
+            
+            html.Div([
+                html.H3("🔍 Exploration Score", style={"margin": "0 0 10px 0", "color": "#333"}),
+                html.H2(f"{analysis['exploration_score']:.1%}", style={"margin": "0", "color": "#28a745"}),
+                html.P(f"{analysis['unique_nodes']}/{analysis['total_clicks']} unique", style={"margin": "5px 0 0 0", "color": "#666"})
+            ], className="metric-card", style={
+                "backgroundColor": "#f8f9fa", "padding": "20px", "borderRadius": "10px",
+                "textAlign": "center", "border": "1px solid #dee2e6", "width": "22%", "display": "inline-block", "margin": "1%"
+            }),
+            
+            html.Div([
+                html.H3("⏱️ Session Duration", style={"margin": "0 0 10px 0", "color": "#333"}),
+                html.H2(f"{analysis['session_duration']:.0f}s", style={"margin": "0", "color": "#ffc107"}),
+                html.P("Total active time", style={"margin": "5px 0 0 0", "color": "#666"})
+            ], className="metric-card", style={
+                "backgroundColor": "#f8f9fa", "padding": "20px", "borderRadius": "10px",
+                "textAlign": "center", "border": "1px solid #dee2e6", "width": "22%", "display": "inline-block", "margin": "1%"
+            }),
+            
+            html.Div([
+                html.H3("🎪 Focus Score", style={"margin": "0 0 10px 0", "color": "#333"}),
+                html.H2(f"{analysis['focus_score']:.1%}", style={"margin": "0", "color": "#dc3545"}),
+                html.P("Repeat interactions", style={"margin": "5px 0 0 0", "color": "#666"})
+            ], className="metric-card", style={
+                "backgroundColor": "#f8f9fa", "padding": "20px", "borderRadius": "10px",
+                "textAlign": "center", "border": "1px solid #dee2e6", "width": "22%", "display": "inline-block", "margin": "1%"
+            })
+        ], style={"margin": "20px 0", "textAlign": "center"}),
+        
+        # Charts Row 1
+        html.Div([
+            html.Div([
+                dcc.Graph(figure=fig_services)
+            ], style={"width": "48%", "display": "inline-block", "margin": "1%"}),
+            
+            html.Div([
+                dcc.Graph(figure=fig_categories)
+            ], style={"width": "48%", "display": "inline-block", "margin": "1%"})
+        ]),
+        
+        # Charts Row 2
+        html.Div([
+            html.Div([
+                dcc.Graph(figure=fig_radar)
+            ], style={"width": "48%", "display": "inline-block", "margin": "1%"}),
+            
+            html.Div([
+                dcc.Graph(figure=fig_timeline)
+            ], style={"width": "48%", "display": "inline-block", "margin": "1%"})
+        ]),
+        
+        # Predictions and Recommendations
+        html.Div([
+            html.H2("🔮 AI Predictions & Recommendations", style={"textAlign": "center", "margin": "30px 0 20px 0"}),
+            
+            html.Div([
+                # Preferred Categories
+                html.Div([
+                    html.H4("📂 Predicted Preferred Categories", style={"color": "#333"}),
+                    html.Ul([
+                        html.Li(f"{cat}: {count} clicks ({count/analysis['total_clicks']:.1%})", 
+                               style={"margin": "5px 0", "fontSize": "14px"})
+                        for cat, count in analysis['preferred_categories']
+                    ])
+                ], style={"width": "30%", "display": "inline-block", "verticalAlign": "top", "margin": "1%", 
+                         "padding": "20px", "backgroundColor": "#e8f4fd", "borderRadius": "10px"}),
+                
+                # Recommendations
+                html.Div([
+                    html.H4("💡 Smart Recommendations", style={"color": "#333"}),
+                    html.Ul([
+                        html.Li(f"You seem interested in {analysis['preferred_categories'][0][0] if analysis['preferred_categories'] else 'various'} services"),
+                        html.Li(f"Your {analysis['activity_pattern'].lower()} style suggests exploring connected services"),
+                        html.Li(f"Consider checking services similar to {analysis['preferred_services'][0] if analysis['preferred_services'] else 'your favorites'}"),
+                        html.Li("Try exploring less popular nodes for hidden gems" if analysis['exploration_score'] > 0.7 else "Focus on fewer services for deeper insights")
+                    ], style={"fontSize": "14px"})
+                ], style={"width": "30%", "display": "inline-block", "verticalAlign": "top", "margin": "1%", 
+                         "padding": "20px", "backgroundColor": "#f0f8e8", "borderRadius": "10px"}),
+                
+                # Next Steps
+                html.Div([
+                    html.H4("🚀 Suggested Next Steps", style={"color": "#333"}),
+                    html.Ul([
+                        html.Li("Explore services with high connection counts"),
+                        html.Li("Check privacy policies of your favorite services"),
+                        html.Li("Look for automation opportunities between your preferred categories"),
+                        html.Li("Try the MCP integration for detailed privacy analysis")
+                    ], style={"fontSize": "14px"})
+                ], style={"width": "30%", "display": "inline-block", "verticalAlign": "top", "margin": "1%", 
+                         "padding": "20px", "backgroundColor": "#fef3e8", "borderRadius": "10px"})
+            ])
+        ])
+    ])
 
 ### GRAPH EXAMPLE
 # current_dir = os.getcwd()

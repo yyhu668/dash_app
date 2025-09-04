@@ -102,10 +102,24 @@ INTERACTIVE FEATURES:
 - Hover to see service name and connection count
 - Pan and zoom to explore different parts of the network
 - Node information panel shows real IFTTT applet details
-- CLICK HISTORY: Track your navigation through the network
-  * Right panel shows your last 10 clicked nodes with timestamps
-  * Clear history button to reset your navigation trail
-  * Easy way to see your exploration pattern
+- ADVANCED CLICK ANALYTICS: Comprehensive tracking system
+  * 📊 Detailed tracking: Timestamp, IP address, system info
+  * 🖥️ Server monitoring: CPU, RAM, disk usage in real-time
+  * 📍 Click coordinates: Exact position on the graph
+  * 🔢 Session tracking: Click numbers and session statistics
+  * 🐍 Environment info: Python version, OS details
+  * 📈 Performance metrics: System resource usage per click
+  * 🗑️ Clear history: Reset all tracking data
+  * 📱 Responsive cards: Color-coded status indicators
+- AI-POWERED USER ANALYTICS DASHBOARD:
+  * 🎯 Behavior pattern analysis: Fast Explorer, Steady Browser, Careful Researcher
+  * 📊 Statistical visualizations: Bar charts, pie charts, radar plots, timelines
+  * 🔮 Preference prediction: Identify preferred service categories
+  * 💡 Smart recommendations: Personalized suggestions based on usage
+  * 📈 Usage metrics: Exploration vs focus scores, engagement levels
+  * 🎭 User profiling: Multi-dimensional behavior analysis
+  * 📂 Category analysis: Service type preferences with percentages
+  * ⏰ Time-based insights: Session duration, click intervals
 """
 
 # Initialize Dash app
@@ -133,6 +147,103 @@ app.layout = create_dash_layout(edge_trace, node_trace, annotations)
 # Callbacks are Python functions that are automatically called by Dash
 # whenever an input component's property changes. They make the app interactive.
 
+# Callback for tab navigation between graph and analytics views
+@app.callback(
+    [
+        Output('main-content', 'children'),
+        Output('graph-tab-btn', 'style'),
+        Output('analytics-tab-btn', 'style'),
+        Output('current-view', 'children')
+    ],
+    [
+        Input('graph-tab-btn', 'n_clicks'),
+        Input('analytics-tab-btn', 'n_clicks')
+    ],
+    [
+        State('click-history-store', 'children'),
+        State('current-view', 'children')
+    ]
+)
+def switch_views(graph_clicks, analytics_clicks, click_history, current_view):
+    """Switch between graph view and analytics dashboard"""
+    ctx = dash.callback_context
+    
+    # Default styles for buttons
+    graph_style = {"padding": "10px 20px", "margin": "5px", "backgroundColor": "#6c757d", 
+                   "color": "white", "border": "none", "borderRadius": "5px", "cursor": "pointer"}
+    analytics_style = {"padding": "10px 20px", "margin": "5px", "backgroundColor": "#6c757d", 
+                       "color": "white", "border": "none", "borderRadius": "5px", "cursor": "pointer"}
+    
+    # Determine which button was clicked
+    if ctx.triggered:
+        button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+        
+        if button_id == 'analytics-tab-btn':
+            # Show analytics view
+            analytics_style["backgroundColor"] = "#007bff"
+            return create_analytics_page(click_history, G, graph_info), graph_style, analytics_style, 'analytics'
+        else:
+            # Show graph view (default)
+            graph_style["backgroundColor"] = "#007bff"
+            return create_graph_view(), graph_style, analytics_style, 'graph'
+    
+    # Default to graph view
+    graph_style["backgroundColor"] = "#007bff"
+    return create_graph_view(), graph_style, analytics_style, 'graph'
+
+def create_graph_view():
+    """Create the graph view content"""
+    # Access global variables
+    global edge_trace, node_trace, annotations
+    
+    return html.Div([
+        # Main content area with graph and click history
+        html.Div([
+            # Network graph (left side)
+            html.Div([
+                dcc.Graph(
+                    id='network-graph',
+                    figure={
+                        'data': edge_trace + [node_trace],
+                        'layout': go.Layout(
+                            clickmode='event+select',
+                            showlegend=False,
+                            margin=dict(l=20, r=20, t=20, b=20),
+                            hovermode='closest',
+                            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                            annotations=annotations
+                        )
+                    },
+                    style={"height": "600px"}
+                ),
+            ], style={"width": "60%", "display": "inline-block", "verticalAlign": "top"}),
+            
+            # Detailed click history panel (right side)
+            html.Div([
+                html.H3("📊 Click Analytics", style={"textAlign": "center", "margin": "10px 0", "color": "#333"}),
+                html.Div([
+                    html.Button("🗑️ Clear History", id="clear-history-btn", 
+                              style={"width": "100%", "marginBottom": "15px", 
+                                   "backgroundColor": "#dc3545", "color": "white", 
+                                   "border": "none", "padding": "10px", "cursor": "pointer",
+                                   "borderRadius": "5px", "fontSize": "14px", "fontWeight": "bold"}),
+                    html.Div(id="click-history-list", 
+                           style={"maxHeight": "520px", "overflowY": "auto", 
+                                "border": "1px solid #dee2e6", "padding": "10px", 
+                                "backgroundColor": "#f8f9fa", "borderRadius": "5px"})
+                ])
+            ], style={"width": "38%", "display": "inline-block", "verticalAlign": "top", 
+                     "marginLeft": "2%", "padding": "10px"})
+            
+        ], style={"display": "flex", "width": "100%"}),
+        
+        # Node information panel (bottom)
+        html.Div(id='node-info', style={"padding": "20px", "fontSize": "16px", 
+                                       "border": "1px solid #ddd", "marginTop": "20px",
+                                       "backgroundColor": "#f5f5f5"})
+    ])
+
 # Main callback to handle node clicks and update both node info and click history
 @app.callback(
     [
@@ -148,10 +259,11 @@ app.layout = create_dash_layout(edge_trace, node_trace, annotations)
     ],
     [
         # State: Current values that don't trigger the callback but are needed
-        State('click-history-store', 'children')  # Current click history data
+        State('click-history-store', 'children'),  # Current click history data
+        State('current-view', 'children')  # Current view state
     ]
 )
-def update_interface(clickData, clear_clicks, current_history):
+def update_interface(clickData, clear_clicks, current_history, current_view):
     """
     This callback function handles:
     1. Node clicks in the network graph
@@ -162,6 +274,7 @@ def update_interface(clickData, clear_clicks, current_history):
         clickData: Plotly click event data containing information about the clicked node
         clear_clicks: Number of times the clear history button has been clicked
         current_history: Current click history stored as JSON string
+        current_view: Current view state (graph or analytics)
         
     Returns:
         Tuple of (node_info_html, updated_history_json, history_display_html)
@@ -179,8 +292,8 @@ def update_interface(clickData, clear_clicks, current_history):
             render_click_history(empty_history)
         )
     
-    # Handle node clicks
-    if clickData:
+    # Handle node clicks (only if in graph view)
+    if clickData and current_view == 'graph':
         # Update click history
         updated_history = update_click_history(current_history, clickData)
         
