@@ -1,0 +1,1275 @@
+{
+  "nodes": [
+    {
+      "id_app": [
+        "Ad75LtKR",
+        "i8YQ3XsG",
+        "Jb5YzAGn"
+      ],
+      "service": "Email",
+      "position": {
+        "x": -0.06315538193987302,
+        "y": 1.0
+      },
+      "url": [
+        "https://ifttt.com/applets/Ad75LtKR-a-daily-email-with-new-recipes-for-you-to-try",
+        "https://ifttt.com/applets/i8YQ3XsG-get-an-email-with-the-latest-ifttt-updates",
+        "https://ifttt.com/applets/Jb5YzAGn-get-an-email-if-it-will-rain-tomorrow"
+      ],
+      "description": [
+        "Use this recipe to get a daily email with a new, trending Recipe.",
+        "When the IFTTT Blog (ifttt.com/blog) publishes a new post, this Applet will send it to your inbox. Tips, data stories, new services, and more \u2014 be the first to know! \ud83d\udc4d",
+        "Don't get caught without an umbrella!"
+      ],
+      "installation_count": [
+        "39345",
+        "77205",
+        "11213"
+      ],
+      "color": "#2468ff",
+      "trigger": [
+        "Email",
+        "RSS Feed",
+        "Email"
+      ],
+      "action": [
+        "IFTTT",
+        "Email",
+        "Weather Underground"
+      ],
+      "permission": [
+        "/triggers/ifttt.dailyrecommendedrecipe",
+        "/actions/email.sendmeemail",
+        "/triggers/weather.tomorrowsforecastcallsfor"
+      ]
+    },
+    {
+      "id_app": [
+        "Ad75LtKR"
+      ],
+      "service": "IFTTT",
+      "position": {
+        "x": 0.9344140890471141,
+        "y": 0.052229337988758
+      },
+      "url": [
+        "https://ifttt.com/applets/Ad75LtKR-a-daily-email-with-new-recipes-for-you-to-try"
+      ],
+      "description": [
+        "Use this recipe to get a daily email with a new, trending Recipe."
+      ],
+      "installation_count": [
+        "39345"
+      ],
+      "color": "#2468ff",
+      "trigger": [
+        "Email"
+      ],
+      "action": [
+        "IFTTT"
+      ],
+      "permission": [
+        "/actions/email.sendmeemail"
+      ]
+    },
+    {
+      "id_app": [
+        "ALPqV3Fs",
+        "QrdtFv5E"
+      ],
+      "service": "Google Drive",
+      "position": {
+        "x": -0.6214984829880583,
+        "y": -0.7961121960200195
+      },
+      "url": [
+        "https://ifttt.com/applets/ALPqV3Fs-back-up-your-new-android-photos-to-google-drive",
+        "https://ifttt.com/applets/QrdtFv5E-automatically-back-up-your-new-ios-photos-to-google-drive"
+      ],
+      "description": [
+        "Back up your new Android photos to Google Drive",
+        "Archive all your new iOS Photos to a folder on Google Drive. Never lose a pic again! "
+      ],
+      "installation_count": [
+        "1428",
+        "10920"
+      ],
+      "color": "#e8655c",
+      "trigger": [
+        "Google Drive",
+        "iOS Photos"
+      ],
+      "action": [
+        "Android Photos",
+        "Google Drive"
+      ],
+      "permission": [
+        "/triggers/androidphotos.androidnewphoto",
+        "/actions/googledrive.uploadfilefromurlgoogledrive"
+      ]
+    },
+    {
+      "id_app": [
+        "ALPqV3Fs"
+      ],
+      "service": "Android Photos",
+      "position": {
+        "x": -0.9765781978630901,
+        "y": 0.22061249532686975
+      },
+      "url": [
+        "https://ifttt.com/applets/ALPqV3Fs-back-up-your-new-android-photos-to-google-drive"
+      ],
+      "description": [
+        "Back up your new Android photos to Google Drive"
+      ],
+      "installation_count": [
+        "1428"
+      ],
+      "color": "#23448b",
+      "trigger": [
+        "Google Drive"
+      ],
+      "action": [
+        "Android Photos"
+      ],
+      "permission": [
+        "/actions/googledrive.uploadfilefromurlgoogledrive"
+      ]
+    },
+    {
+      "id_app": [
+        "aVxGRrtD",
+        "LUxFA7ce",
+        "rnvTEjV9",
+        "yfaY7BnX"
+      ],
+      "service": "Twitter",
+      "position": {
+        "x": 0.43568145535030617,
+        "y": 0.7988847100212825
+      },
+      "url": [
+        "https://ifttt.com/applets/aVxGRrtD-tweet-your-instagrams-as-native-photos-on-twitter",
+        "https://ifttt.com/applets/LUxFA7ce-tweet-your-instagrams-as-native-photos-on-twitter",
+        "https://ifttt.com/applets/rnvTEjV9-automatically-share-new-links-you-post-on-facebook-to-twitter",
+        "https://ifttt.com/applets/yfaY7BnX-tweet-your-facebook-status-updates"
+      ],
+      "description": [
+        "Instagram photos will show up in your Twitter feed as a full image rather than a link. Note: only works for single photo posts.",
+        "Instagram photos will show up in your Twitter feed as a full image rather than a link.",
+        "Whenever you create a new link post on Facebook, it will also post a Tweet with the same link. ",
+        "Tweet your Facebook status updates"
+      ],
+      "installation_count": [
+        "602937",
+        "176028",
+        "39600",
+        "48106"
+      ],
+      "color": "#000000",
+      "trigger": [
+        "Twitter",
+        "Twitter",
+        "Twitter",
+        "Twitter"
+      ],
+      "action": [
+        "Instagram",
+        "Instagram",
+        "Facebook",
+        "Facebook"
+      ],
+      "permission": [
+        "/triggers/instagram.anynewphotobyyou",
+        "/triggers/instagram.anynewphotobyyou",
+        "/triggers/facebook.newlinkfromyou",
+        "/triggers/facebook.newstatusmessagebyyou"
+      ]
+    },
+    {
+      "id_app": [
+        "aVxGRrtD",
+        "LUxFA7ce"
+      ],
+      "service": "Instagram",
+      "position": {
+        "x": -0.7357525545850019,
+        "y": 0.7831046345407174
+      },
+      "url": [
+        "https://ifttt.com/applets/aVxGRrtD-tweet-your-instagrams-as-native-photos-on-twitter",
+        "https://ifttt.com/applets/LUxFA7ce-tweet-your-instagrams-as-native-photos-on-twitter"
+      ],
+      "description": [
+        "Instagram photos will show up in your Twitter feed as a full image rather than a link. Note: only works for single photo posts.",
+        "Instagram photos will show up in your Twitter feed as a full image rather than a link."
+      ],
+      "installation_count": [
+        "602937",
+        "176028"
+      ],
+      "color": "#000000",
+      "trigger": [
+        "Twitter",
+        "Twitter"
+      ],
+      "action": [
+        "Instagram",
+        "Instagram"
+      ],
+      "permission": [
+        "/actions/twitter.postnewtweetwithimage",
+        "/actions/twitter.postnewtweetwithimage"
+      ]
+    },
+    {
+      "id_app": [
+        "DEz9XLCh"
+      ],
+      "service": "VoIP Calls",
+      "position": {
+        "x": 0.8332043483113766,
+        "y": -0.5557315317002768
+      },
+      "url": [
+        "https://ifttt.com/applets/DEz9XLCh-get-yourself-out-of-an-awkward-situation-international"
+      ],
+      "description": [
+        "Run into someone that you really don't want to talk to? In a meeting that's dragging on far too long? This Applet offers a simple, discreet way to trigger a phone call to yourself so that you can politely excuse yourself from the situation."
+      ],
+      "installation_count": [
+        "59893"
+      ],
+      "color": "#2468Ff",
+      "trigger": [
+        "VoIP Calls"
+      ],
+      "action": [
+        "Button widget"
+      ],
+      "permission": [
+        "/triggers/dobutton.dobuttonnewcommandcommon"
+      ]
+    },
+    {
+      "id_app": [
+        "DEz9XLCh",
+        "jSEPdCLK",
+        "rRjAtSHM",
+        "sJaN2dku"
+      ],
+      "service": "Button widget",
+      "position": {
+        "x": -0.855183154864966,
+        "y": -0.49380954093752577
+      },
+      "url": [
+        "https://ifttt.com/applets/DEz9XLCh-get-yourself-out-of-an-awkward-situation-international",
+        "https://ifttt.com/applets/jSEPdCLK-send-yourself-a-notification-for-testing",
+        "https://ifttt.com/applets/rRjAtSHM-music-button",
+        "https://ifttt.com/applets/sJaN2dku-press-a-button-to-make-your-hue-lights-color-loop"
+      ],
+      "description": [
+        "Run into someone that you really don't want to talk to? In a meeting that's dragging on far too long? This Applet offers a simple, discreet way to trigger a phone call to yourself so that you can politely excuse yourself from the situation.",
+        "Send a notification from the IFTTT app",
+        "Button that plays music!",
+        "This makes a widget you can add to the home screen on your phone. Then you can press the button to make your Hue lights dance as they do a color loop of rainbow colors. Party time!"
+      ],
+      "installation_count": [
+        "59893",
+        "63747",
+        "57689",
+        "33152"
+      ],
+      "color": "#ee4433",
+      "trigger": [
+        "VoIP Calls",
+        "Notifications",
+        "Android Device",
+        "Button widget"
+      ],
+      "action": [
+        "Button widget",
+        "Button widget",
+        "Button widget",
+        "Philips Hue"
+      ],
+      "permission": [
+        "/actions/voipcalls.callmydevice",
+        "/actions/ifnotifications.sendnotification",
+        "/actions/androiddevice.playbestsong",
+        "/triggers/dobutton.dobuttonnewcommandcommon"
+      ]
+    },
+    {
+      "id_app": [
+        "eiNUGkv4",
+        "KD87nZVq",
+        "ShdesaT5"
+      ],
+      "service": "Location",
+      "position": {
+        "x": -0.3052090287392736,
+        "y": 0.19546739743075783
+      },
+      "url": [
+        "https://ifttt.com/applets/eiNUGkv4-automatically-turn-up-your-android-phone-s-ringer-when-you-leave-work",
+        "https://ifttt.com/applets/KD87nZVq-track-your-work-hours-in-google-calendar",
+        "https://ifttt.com/applets/ShdesaT5-mute-your-android-phone-when-you-arrive-at-work"
+      ],
+      "description": [
+        "Center the map on your workplace. When you exit the area, your Android's ringtone volume will be turned up to 80%. ",
+        "Set your work location and your arrive/leaving time will be automatically added to a Google Calendar for simple tracking.",
+        "Locate your workplace and when you arrive, your device will mute and be set to vibrate."
+      ],
+      "installation_count": [
+        "24887",
+        "20945",
+        "98126"
+      ],
+      "color": "#0099FF",
+      "trigger": [
+        "Location",
+        "Location",
+        "Location"
+      ],
+      "action": [
+        "Android Device",
+        "Google Calendar",
+        "Android Device"
+      ],
+      "permission": [
+        "/triggers/location.exitregionlocation",
+        "/triggers/location.enterorexitregionlocation",
+        "/triggers/location.enterregionlocation"
+      ]
+    },
+    {
+      "id_app": [
+        "eiNUGkv4",
+        "FzgpsbRi",
+        "hJMKghVa",
+        "KLJbpBxX",
+        "N6GQjVB4",
+        "rRjAtSHM",
+        "ShdesaT5",
+        "Xg6K7DGY",
+        "yNvHX9VQ",
+        "zj4e8TEW"
+      ],
+      "service": "Android Device",
+      "position": {
+        "x": -0.17073189547253728,
+        "y": -0.9022437194938765
+      },
+      "url": [
+        "https://ifttt.com/applets/eiNUGkv4-automatically-turn-up-your-android-phone-s-ringer-when-you-leave-work",
+        "https://ifttt.com/applets/FzgpsbRi-unmute-your-android-phone-s-ringer-every-morning",
+        "https://ifttt.com/applets/hJMKghVa-if-someone-calls-show-their-location-when-the-call-ends",
+        "https://ifttt.com/applets/KLJbpBxX-mute-your-android-phone-at-bedtime",
+        "https://ifttt.com/applets/N6GQjVB4-text-your-lost-android-phone-to-turn-the-ringer-volume-up-100",
+        "https://ifttt.com/applets/rRjAtSHM-music-button",
+        "https://ifttt.com/applets/ShdesaT5-mute-your-android-phone-when-you-arrive-at-work",
+        "https://ifttt.com/applets/Xg6K7DGY-set-ringer-to-high-after-missing-a-call",
+        "https://ifttt.com/applets/yNvHX9VQ-update-your-android-wallpaper-with-nasa-s-image-of-the-day",
+        "https://ifttt.com/applets/zj4e8TEW-update-your-android-wallpaper-with-new-nasa-photos"
+      ],
+      "description": [
+        "Center the map on your workplace. When you exit the area, your Android's ringtone volume will be turned up to 80%. ",
+        "Unmute your Android phone's ringer every morning",
+        "This applet automatically initiates a Google Maps search for the phone number at the end of each call. If the number is associated with a registered business or a recognized location in Google's database, the applet then opens up navigation directions to that location. This tool is particularly useful for quickly and efficiently getting directions to businesses or locations immediately following a phone conversation.",
+        "Mute your Android phone at bedtime",
+        "Text \"lostphone\" to your Android device and the ringer volume will be turned up to 100% \u2014 give it a call and you'll find it in no time! ",
+        "Button that plays music!",
+        "Locate your workplace and when you arrive, your device will mute and be set to vibrate.",
+        "Set ringer to high after missing a call.",
+        "Your device can now contain the amazing vastness & beauty of space! Basically.",
+        "Set your Android's wallpaper to NASA's image of the day."
+      ],
+      "installation_count": [
+        "24887",
+        "31187",
+        "92950",
+        "57716",
+        "215489",
+        "57689",
+        "98126",
+        "46809",
+        "352513",
+        "115893"
+      ],
+      "color": "#8CC251",
+      "trigger": [
+        "Location",
+        "Date & Time",
+        "Android Phone Call",
+        "Date & Time",
+        "Android Device",
+        "Android Device",
+        "Location",
+        "Android Phone Call",
+        "Android Device",
+        "Android Device"
+      ],
+      "action": [
+        "Android Device",
+        "Android Device",
+        "Android Device",
+        "Android Device",
+        "Android SMS",
+        "Button widget",
+        "Android Device",
+        "Android Device",
+        "Space",
+        "Space"
+      ],
+      "permission": [
+        "/actions/androiddevice.setdevicevolume",
+        "/actions/androiddevice.setdevicevolume",
+        "/actions/androiddevice.startnavigation",
+        "/actions/androiddevice.mutedevice",
+        "/triggers/androidmessages.receivedamessagematchingsearch",
+        "/triggers/dobutton.dobuttonnewcommandcommon",
+        "/actions/androiddevice.mutedevice",
+        "/actions/androiddevice.setdevicevolume",
+        "/triggers/space.newimagepicturenasa",
+        "/triggers/space.newastronomypicturenasa"
+      ]
+    },
+    {
+      "id_app": [
+        "FzgpsbRi",
+        "KLJbpBxX",
+        "wtSmReHc",
+        "yZHQBC5f"
+      ],
+      "service": "Date & Time",
+      "position": {
+        "x": 0.5534144150377763,
+        "y": -0.8028536834082821
+      },
+      "url": [
+        "https://ifttt.com/applets/FzgpsbRi-unmute-your-android-phone-s-ringer-every-morning",
+        "https://ifttt.com/applets/KLJbpBxX-mute-your-android-phone-at-bedtime",
+        "https://ifttt.com/applets/wtSmReHc-keep-google-voice-active",
+        "https://ifttt.com/applets/yZHQBC5f-a-reminder-to-drink-water"
+      ],
+      "description": [
+        "Unmute your Android phone's ringer every morning",
+        "Mute your Android phone at bedtime",
+        "Keep Google Voice Active",
+        "This applet sends you a notification \"Drink a glass of water!\" every 2 hours between 8 am and 8 pm :)"
+      ],
+      "installation_count": [
+        "31187",
+        "57716",
+        "6168",
+        "1645"
+      ],
+      "color": "#333333",
+      "trigger": [
+        "Date & Time",
+        "Date & Time",
+        "Date & Time",
+        "Date & Time"
+      ],
+      "action": [
+        "Android Device",
+        "Android Device",
+        "Phone Call (US only)",
+        "Notifications"
+      ],
+      "permission": [
+        "/triggers/dateandtime.everydayat",
+        "/triggers/dateandtime.everydayat",
+        "/triggers/dateandtime.everymonthonthe",
+        "/triggers/dateandtime.everyhourat"
+      ]
+    },
+    {
+      "id_app": [
+        "G3Jj9eiZ",
+        "Jb5YzAGn",
+        "YY9Mqgw5",
+        "zNjgQJzy",
+        "ZTvsefp2"
+      ],
+      "service": "Weather Underground",
+      "position": {
+        "x": -0.7086737570417961,
+        "y": -0.5951988375731156
+      },
+      "url": [
+        "https://ifttt.com/applets/G3Jj9eiZ-rain-tomorrow-get-a-mobile-notification",
+        "https://ifttt.com/applets/Jb5YzAGn-get-an-email-if-it-will-rain-tomorrow",
+        "https://ifttt.com/applets/YY9Mqgw5-get-the-weather-forecast-every-day-at-7-00-am",
+        "https://ifttt.com/applets/zNjgQJzy-rain-today-don-t-forget-an-umbrella",
+        "https://ifttt.com/applets/ZTvsefp2-before-go-to-sleep-get-the-weather-for-the-next-day"
+      ],
+      "description": [
+        "When the forecast calls for rain tomorrow in your area you'll get a push notification. Remember to bring an umbrella! ",
+        "Don't get caught without an umbrella!",
+        "Every morning you will receive a simple weather report notification at 7 AM. Keep in mind this Applet requires the IFTTT app.",
+        "Rain today? Don't forget an umbrella",
+        "Before go to sleep, get the weather for the next day! "
+      ],
+      "installation_count": [
+        "24477",
+        "11213",
+        "89026",
+        "99797",
+        "73682"
+      ],
+      "color": "#1E2023",
+      "trigger": [
+        "Weather Underground",
+        "Email",
+        "Weather Underground",
+        "Weather Underground",
+        "Weather Underground"
+      ],
+      "action": [
+        "Notifications",
+        "Weather Underground",
+        "Notifications",
+        "Notifications",
+        "Notifications"
+      ],
+      "permission": [
+        "/triggers/weather.tomorrowsforecastcallsfor",
+        "/actions/email.sendmeemail",
+        "/triggers/weather.currentweatherattime",
+        "/triggers/weather.currentconditionis",
+        "/triggers/weather.tomorrowsweatherattime"
+      ]
+    },
+    {
+      "id_app": [
+        "G3Jj9eiZ",
+        "jSEPdCLK",
+        "VsUgFXBi",
+        "YY9Mqgw5",
+        "yZHQBC5f",
+        "zNjgQJzy",
+        "ZTvsefp2"
+      ],
+      "service": "Notifications",
+      "position": {
+        "x": 0.01909224242594254,
+        "y": 0.6274691296403724
+      },
+      "url": [
+        "https://ifttt.com/applets/G3Jj9eiZ-rain-tomorrow-get-a-mobile-notification",
+        "https://ifttt.com/applets/jSEPdCLK-send-yourself-a-notification-for-testing",
+        "https://ifttt.com/applets/VsUgFXBi-get-a-notification-when-the-international-space-station-passes-over-your-home",
+        "https://ifttt.com/applets/YY9Mqgw5-get-the-weather-forecast-every-day-at-7-00-am",
+        "https://ifttt.com/applets/yZHQBC5f-a-reminder-to-drink-water",
+        "https://ifttt.com/applets/zNjgQJzy-rain-today-don-t-forget-an-umbrella",
+        "https://ifttt.com/applets/ZTvsefp2-before-go-to-sleep-get-the-weather-for-the-next-day"
+      ],
+      "description": [
+        "When the forecast calls for rain tomorrow in your area you'll get a push notification. Remember to bring an umbrella! ",
+        "Send a notification from the IFTTT app",
+        "\"That's no moon.\"\r\nCenter the map on your home. ",
+        "Every morning you will receive a simple weather report notification at 7 AM. Keep in mind this Applet requires the IFTTT app.",
+        "This applet sends you a notification \"Drink a glass of water!\" every 2 hours between 8 am and 8 pm :)",
+        "Rain today? Don't forget an umbrella",
+        "Before go to sleep, get the weather for the next day! "
+      ],
+      "installation_count": [
+        "24477",
+        "63747",
+        "93726",
+        "89026",
+        "1645",
+        "99797",
+        "73682"
+      ],
+      "color": "#1E2023",
+      "trigger": [
+        "Weather Underground",
+        "Notifications",
+        "Notifications",
+        "Weather Underground",
+        "Date & Time",
+        "Weather Underground",
+        "Weather Underground"
+      ],
+      "action": [
+        "Notifications",
+        "Button widget",
+        "Space",
+        "Notifications",
+        "Notifications",
+        "Notifications",
+        "Notifications"
+      ],
+      "permission": [
+        "/actions/ifnotifications.sendnotification",
+        "/triggers/dobutton.dobuttonnewcommandcommon",
+        "/triggers/space.spacestationoverheadsoonnasa",
+        "/actions/ifnotifications.sendnotification",
+        "/actions/ifnotifications.sendnotification",
+        "/actions/ifnotifications.sendnotification",
+        "/actions/ifnotifications.sendnotification"
+      ]
+    },
+    {
+      "id_app": [
+        "gTQep2wJ",
+        "hJMKghVa",
+        "Xg6K7DGY"
+      ],
+      "service": "Android Phone Call",
+      "position": {
+        "x": -0.9303034396070721,
+        "y": -0.10785101852034165
+      },
+      "url": [
+        "https://ifttt.com/applets/gTQep2wJ-automatically-log-every-call-you-make-on-your-android-phone-to-a-google-spreadsheet",
+        "https://ifttt.com/applets/hJMKghVa-if-someone-calls-show-their-location-when-the-call-ends",
+        "https://ifttt.com/applets/Xg6K7DGY-set-ringer-to-high-after-missing-a-call"
+      ],
+      "description": [
+        "Every call you make will be automatically logged to a spreadsheet in Google Drive for safe record keeping.",
+        "This applet automatically initiates a Google Maps search for the phone number at the end of each call. If the number is associated with a registered business or a recognized location in Google's database, the applet then opens up navigation directions to that location. This tool is particularly useful for quickly and efficiently getting directions to businesses or locations immediately following a phone conversation.",
+        "Set ringer to high after missing a call."
+      ],
+      "installation_count": [
+        "10760",
+        "92950",
+        "46809"
+      ],
+      "color": "#4B87F1",
+      "trigger": [
+        "Android Phone Call",
+        "Android Phone Call",
+        "Android Phone Call"
+      ],
+      "action": [
+        "Google Sheets",
+        "Android Device",
+        "Android Device"
+      ],
+      "permission": [
+        "/triggers/androidphone.placeaphonecall",
+        "/triggers/androidphone.placeaphonecall",
+        "/triggers/androidphone.missaphonecall"
+      ]
+    },
+    {
+      "id_app": [
+        "gTQep2wJ",
+        "J7Qjf8Dr"
+      ],
+      "service": "Google Sheets",
+      "position": {
+        "x": 0.30007811206183105,
+        "y": -0.9629810985557784
+      },
+      "url": [
+        "https://ifttt.com/applets/gTQep2wJ-automatically-log-every-call-you-make-on-your-android-phone-to-a-google-spreadsheet",
+        "https://ifttt.com/applets/J7Qjf8Dr-sync-all-your-new-ios-contacts-to-a-google-spreadsheet"
+      ],
+      "description": [
+        "Every call you make will be automatically logged to a spreadsheet in Google Drive for safe record keeping.",
+        "Automatically save new iOS Contacts you add to a Google spreadsheet for easy sorting and searching."
+      ],
+      "installation_count": [
+        "10760",
+        "1798"
+      ],
+      "color": "#4CD964",
+      "trigger": [
+        "Android Phone Call",
+        "iOS Contacts"
+      ],
+      "action": [
+        "Google Sheets",
+        "Google Sheets"
+      ],
+      "permission": [
+        "/actions/googlesheets.appendtogooglespreadsheet",
+        "/actions/googlesheets.appendtogooglespreadsheet"
+      ]
+    },
+    {
+      "id_app": [
+        "i8YQ3XsG"
+      ],
+      "service": "RSS Feed",
+      "position": {
+        "x": 0.6949086403233393,
+        "y": -0.633357470729397
+      },
+      "url": [
+        "https://ifttt.com/applets/i8YQ3XsG-get-an-email-with-the-latest-ifttt-updates"
+      ],
+      "description": [
+        "When the IFTTT Blog (ifttt.com/blog) publishes a new post, this Applet will send it to your inbox. Tips, data stories, new services, and more \u2014 be the first to know! \ud83d\udc4d"
+      ],
+      "installation_count": [
+        "77205"
+      ],
+      "color": "#EC7505",
+      "trigger": [
+        "RSS Feed"
+      ],
+      "action": [
+        "Email"
+      ],
+      "permission": [
+        "/triggers/feed.newfeeditem"
+      ]
+    },
+    {
+      "id_app": [
+        "J7Qjf8Dr",
+        "ZuRU4kzy"
+      ],
+      "service": "iOS Contacts",
+      "position": {
+        "x": -0.3284393813684988,
+        "y": 0.9796213241907216
+      },
+      "url": [
+        "https://ifttt.com/applets/J7Qjf8Dr-sync-all-your-new-ios-contacts-to-a-google-spreadsheet",
+        "https://ifttt.com/applets/ZuRU4kzy-save-new-ios-contacts-to-your-google-contacts"
+      ],
+      "description": [
+        "Automatically save new iOS Contacts you add to a Google spreadsheet for easy sorting and searching.",
+        "This Applet will save any new iOS contact to your Google Contacts."
+      ],
+      "installation_count": [
+        "1798",
+        "91603"
+      ],
+      "color": "#4CD964",
+      "trigger": [
+        "iOS Contacts",
+        "iOS Contacts"
+      ],
+      "action": [
+        "Google Sheets",
+        "Google Contacts"
+      ],
+      "permission": [
+        "/triggers/ioscontacts.newcontactadded",
+        "/triggers/ioscontacts.newcontactadded"
+      ]
+    },
+    {
+      "id_app": [
+        "KD87nZVq",
+        "Wy89cqfv"
+      ],
+      "service": "Google Calendar",
+      "position": {
+        "x": 0.9028811940885819,
+        "y": 0.526532885358974
+      },
+      "url": [
+        "https://ifttt.com/applets/KD87nZVq-track-your-work-hours-in-google-calendar",
+        "https://ifttt.com/applets/Wy89cqfv-quickly-create-events-in-google-calendar"
+      ],
+      "description": [
+        "Set your work location and your arrive/leaving time will be automatically added to a Google Calendar for simple tracking.",
+        "Enter a description like \"Meeting with Jonathan at 3:30 on June 10th\" and the event will be created on your calendar with the correct date and time. The more specific your description is the better!"
+      ],
+      "installation_count": [
+        "20945",
+        "11344"
+      ],
+      "color": "#2C6EFC",
+      "trigger": [
+        "Location",
+        "Google Calendar"
+      ],
+      "action": [
+        "Google Calendar",
+        "Note widget"
+      ],
+      "permission": [
+        "/actions/googlecalendar.quickaddevent",
+        "/triggers/donote.donotenewcommandcommon"
+      ]
+    },
+    {
+      "id_app": [
+        "N6GQjVB4"
+      ],
+      "service": "Android SMS",
+      "position": {
+        "x": -0.36938990811150085,
+        "y": -0.9273190060691114
+      },
+      "url": [
+        "https://ifttt.com/applets/N6GQjVB4-text-your-lost-android-phone-to-turn-the-ringer-volume-up-100"
+      ],
+      "description": [
+        "Text \"lostphone\" to your Android device and the ringer volume will be turned up to 100% \u2014 give it a call and you'll find it in no time! "
+      ],
+      "installation_count": [
+        "215489"
+      ],
+      "color": "#8CC251",
+      "trigger": [
+        "Android Device"
+      ],
+      "action": [
+        "Android SMS"
+      ],
+      "permission": [
+        "/actions/androiddevice.setdevicevolume"
+      ]
+    },
+    {
+      "id_app": [
+        "pc6CeRjs"
+      ],
+      "service": "YouTube",
+      "position": {
+        "x": 0.8530965220929658,
+        "y": -0.3323290872243466
+      },
+      "url": [
+        "https://ifttt.com/applets/pc6CeRjs-add-songs-from-videos-you-like-to-a-spotify-playlist"
+      ],
+      "description": [
+        "This Applet will search the title of the video on Spotify \u2014 if it finds the track, it'll add it to a \"YouTube\" playlist. Not all songs on YouTube are available on Spotify. Happy tune hunting!"
+      ],
+      "installation_count": [
+        "62775"
+      ],
+      "color": "#FF0000",
+      "trigger": [
+        "YouTube"
+      ],
+      "action": [
+        "Spotify"
+      ],
+      "permission": [
+        "/triggers/youtube.newlikedvideo"
+      ]
+    },
+    {
+      "id_app": [
+        "pc6CeRjs"
+      ],
+      "service": "Spotify",
+      "position": {
+        "x": -0.9292934981414436,
+        "y": -0.26523071206810295
+      },
+      "url": [
+        "https://ifttt.com/applets/pc6CeRjs-add-songs-from-videos-you-like-to-a-spotify-playlist"
+      ],
+      "description": [
+        "This Applet will search the title of the video on Spotify \u2014 if it finds the track, it'll add it to a \"YouTube\" playlist. Not all songs on YouTube are available on Spotify. Happy tune hunting!"
+      ],
+      "installation_count": [
+        "62775"
+      ],
+      "color": "#FF0000",
+      "trigger": [
+        "YouTube"
+      ],
+      "action": [
+        "Spotify"
+      ],
+      "permission": [
+        "/actions/spotify.addatracktoaplaylist"
+      ]
+    },
+    {
+      "id_app": [
+        "QrdtFv5E",
+        "v45AcbMH",
+        "v45AcbMH",
+        "v45AcbMH",
+        "v45AcbMH"
+      ],
+      "service": "iOS Photos",
+      "position": {
+        "x": -0.9308872446773802,
+        "y": 0.4745651960167137
+      },
+      "url": [
+        "https://ifttt.com/applets/QrdtFv5E-automatically-back-up-your-new-ios-photos-to-google-drive",
+        "https://ifttt.com/applets/v45AcbMH-organize-iphone-screenshots-into-their-own-album",
+        "https://ifttt.com/applets/v45AcbMH-organize-iphone-screenshots-into-their-own-album",
+        "https://ifttt.com/applets/v45AcbMH-organize-iphone-screenshots-into-their-own-album",
+        "https://ifttt.com/applets/v45AcbMH-organize-iphone-screenshots-into-their-own-album"
+      ],
+      "description": [
+        "Archive all your new iOS Photos to a folder on Google Drive. Never lose a pic again! ",
+        "Organize iPhone screenshots into their own album",
+        "Organize iPhone screenshots into their own album",
+        "Organize iPhone screenshots into their own album",
+        "Organize iPhone screenshots into their own album"
+      ],
+      "installation_count": [
+        "10920",
+        "72982",
+        "72982",
+        "72982",
+        "72982"
+      ],
+      "color": "#e8655c",
+      "trigger": [
+        "iOS Photos",
+        "iOS Photos",
+        "iOS Photos",
+        "iOS Photos",
+        "iOS Photos"
+      ],
+      "action": [
+        "Google Drive",
+        "iOS Photos",
+        "iOS Photos",
+        "iOS Photos",
+        "iOS Photos"
+      ],
+      "permission": [
+        "/triggers/iosphotos.newphotoincameraroll",
+        "/triggers/iosphotos.iosnewscreenshot",
+        "/actions/iosphotos.createphotoiosphotos",
+        "/triggers/iosphotos.iosnewscreenshot",
+        "/actions/iosphotos.createphotoiosphotos"
+      ]
+    },
+    {
+      "id_app": [
+        "rnvTEjV9",
+        "yfaY7BnX"
+      ],
+      "service": "Facebook",
+      "position": {
+        "x": -0.500474912807714,
+        "y": 0.7857981751631896
+      },
+      "url": [
+        "https://ifttt.com/applets/rnvTEjV9-automatically-share-new-links-you-post-on-facebook-to-twitter",
+        "https://ifttt.com/applets/yfaY7BnX-tweet-your-facebook-status-updates"
+      ],
+      "description": [
+        "Whenever you create a new link post on Facebook, it will also post a Tweet with the same link. ",
+        "Tweet your Facebook status updates"
+      ],
+      "installation_count": [
+        "39600",
+        "48106"
+      ],
+      "color": "#000000",
+      "trigger": [
+        "Twitter",
+        "Twitter"
+      ],
+      "action": [
+        "Facebook",
+        "Facebook"
+      ],
+      "permission": [
+        "/actions/twitter.postnewtweet",
+        "/actions/twitter.postnewtweet"
+      ]
+    },
+    {
+      "id_app": [
+        "sJaN2dku"
+      ],
+      "service": "Philips Hue",
+      "position": {
+        "x": 0.7817649779455533,
+        "y": -0.07990812242760122
+      },
+      "url": [
+        "https://ifttt.com/applets/sJaN2dku-press-a-button-to-make-your-hue-lights-color-loop"
+      ],
+      "description": [
+        "This makes a widget you can add to the home screen on your phone. Then you can press the button to make your Hue lights dance as they do a color loop of rainbow colors. Party time!"
+      ],
+      "installation_count": [
+        "33152"
+      ],
+      "color": "#ee4433",
+      "trigger": [
+        "Button widget"
+      ],
+      "action": [
+        "Philips Hue"
+      ],
+      "permission": [
+        "/actions/hue.colorloopallhue"
+      ]
+    },
+    {
+      "id_app": [
+        "VsUgFXBi",
+        "yNvHX9VQ",
+        "zj4e8TEW"
+      ],
+      "service": "Space",
+      "position": {
+        "x": 0.06825029357565322,
+        "y": -0.9478549722250629
+      },
+      "url": [
+        "https://ifttt.com/applets/VsUgFXBi-get-a-notification-when-the-international-space-station-passes-over-your-home",
+        "https://ifttt.com/applets/yNvHX9VQ-update-your-android-wallpaper-with-nasa-s-image-of-the-day",
+        "https://ifttt.com/applets/zj4e8TEW-update-your-android-wallpaper-with-new-nasa-photos"
+      ],
+      "description": [
+        "\"That's no moon.\"\r\nCenter the map on your home. ",
+        "Your device can now contain the amazing vastness & beauty of space! Basically.",
+        "Set your Android's wallpaper to NASA's image of the day."
+      ],
+      "installation_count": [
+        "93726",
+        "352513",
+        "115893"
+      ],
+      "color": "#8CC251",
+      "trigger": [
+        "Notifications",
+        "Android Device",
+        "Android Device"
+      ],
+      "action": [
+        "Space",
+        "Space",
+        "Space"
+      ],
+      "permission": [
+        "/actions/ifnotifications.sendnotification",
+        "/actions/androiddevice.setwallpaper",
+        "/actions/androiddevice.setwallpaper"
+      ]
+    },
+    {
+      "id_app": [
+        "wtSmReHc"
+      ],
+      "service": "Phone Call (US only)",
+      "position": {
+        "x": 0.9879342846176165,
+        "y": 0.252504563668101
+      },
+      "url": [
+        "https://ifttt.com/applets/wtSmReHc-keep-google-voice-active"
+      ],
+      "description": [
+        "Keep Google Voice Active"
+      ],
+      "installation_count": [
+        "6168"
+      ],
+      "color": "#333333",
+      "trigger": [
+        "Date & Time"
+      ],
+      "action": [
+        "Phone Call (US only)"
+      ],
+      "permission": [
+        "/actions/phonecall.callmyphone"
+      ]
+    },
+    {
+      "id_app": [
+        "Wy89cqfv"
+      ],
+      "service": "Note widget",
+      "position": {
+        "x": 0.7254517411175312,
+        "y": 0.7657316564621118
+      },
+      "url": [
+        "https://ifttt.com/applets/Wy89cqfv-quickly-create-events-in-google-calendar"
+      ],
+      "description": [
+        "Enter a description like \"Meeting with Jonathan at 3:30 on June 10th\" and the event will be created on your calendar with the correct date and time. The more specific your description is the better!"
+      ],
+      "installation_count": [
+        "11344"
+      ],
+      "color": "#2C6EFC",
+      "trigger": [
+        "Google Calendar"
+      ],
+      "action": [
+        "Note widget"
+      ],
+      "permission": [
+        "/actions/googlecalendar.quickaddevent"
+      ]
+    },
+    {
+      "id_app": [
+        "ZuRU4kzy"
+      ],
+      "service": "Google Contacts",
+      "position": {
+        "x": 0.3353985222126183,
+        "y": 0.940259491144269
+      },
+      "url": [
+        "https://ifttt.com/applets/ZuRU4kzy-save-new-ios-contacts-to-your-google-contacts"
+      ],
+      "description": [
+        "This Applet will save any new iOS contact to your Google Contacts."
+      ],
+      "installation_count": [
+        "91603"
+      ],
+      "color": "#4CD964",
+      "trigger": [
+        "iOS Contacts"
+      ],
+      "action": [
+        "Google Contacts"
+      ],
+      "permission": [
+        "/actions/googlecontacts.createnewcontact"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "Email",
+      "target": "IFTTT",
+      "label": ""
+    },
+    {
+      "source": "Email",
+      "target": "Weather Underground",
+      "label": ""
+    },
+    {
+      "source": "Google Drive",
+      "target": "Android Photos",
+      "label": ""
+    },
+    {
+      "source": "Twitter",
+      "target": "Instagram",
+      "label": ""
+    },
+    {
+      "source": "Twitter",
+      "target": "Facebook",
+      "label": ""
+    },
+    {
+      "source": "VoIP Calls",
+      "target": "Button widget",
+      "label": ""
+    },
+    {
+      "source": "Button widget",
+      "target": "Philips Hue",
+      "label": ""
+    },
+    {
+      "source": "Location",
+      "target": "Android Device",
+      "label": ""
+    },
+    {
+      "source": "Location",
+      "target": "Google Calendar",
+      "label": ""
+    },
+    {
+      "source": "Android Device",
+      "target": "Android SMS",
+      "label": ""
+    },
+    {
+      "source": "Android Device",
+      "target": "Button widget",
+      "label": ""
+    },
+    {
+      "source": "Android Device",
+      "target": "Space",
+      "label": ""
+    },
+    {
+      "source": "Date & Time",
+      "target": "Android Device",
+      "label": ""
+    },
+    {
+      "source": "Date & Time",
+      "target": "Phone Call (US only)",
+      "label": ""
+    },
+    {
+      "source": "Date & Time",
+      "target": "Notifications",
+      "label": ""
+    },
+    {
+      "source": "Weather Underground",
+      "target": "Notifications",
+      "label": ""
+    },
+    {
+      "source": "Notifications",
+      "target": "Button widget",
+      "label": ""
+    },
+    {
+      "source": "Notifications",
+      "target": "Space",
+      "label": ""
+    },
+    {
+      "source": "Android Phone Call",
+      "target": "Google Sheets",
+      "label": ""
+    },
+    {
+      "source": "Android Phone Call",
+      "target": "Android Device",
+      "label": ""
+    },
+    {
+      "source": "RSS Feed",
+      "target": "Email",
+      "label": ""
+    },
+    {
+      "source": "iOS Contacts",
+      "target": "Google Sheets",
+      "label": ""
+    },
+    {
+      "source": "iOS Contacts",
+      "target": "Google Contacts",
+      "label": ""
+    },
+    {
+      "source": "Google Calendar",
+      "target": "Note widget",
+      "label": ""
+    },
+    {
+      "source": "YouTube",
+      "target": "Spotify",
+      "label": ""
+    },
+    {
+      "source": "iOS Photos",
+      "target": "Google Drive",
+      "label": ""
+    },
+    {
+      "source": "iOS Photos",
+      "target": "iOS Photos",
+      "label": ""
+    }
+  ]
+}

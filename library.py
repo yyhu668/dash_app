@@ -460,24 +460,54 @@ def create_node_trace(G, pos):
 def create_dash_layout(edge_trace, node_trace, annotations):
     return html.Div([
         html.H2("IFTTT Graph: Trigger → Action", style={"textAlign": "center"}),
-        dcc.Graph(
-            id='network-graph',
-            figure={
-                'data': edge_trace + [node_trace],
-                'layout': go.Layout(
-                    clickmode='event+select',
-                    showlegend=False,
-                    margin=dict(l=20, r=20, t=20, b=20),
-                    hovermode='closest',
-                    xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                    yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                    annotations=annotations
-                )
-            },
-            style={"height": "600px"}
-        ),
-        html.Div(id='node-info', style={"padding": "10px", "fontSize": "16px"}),
         
+        # Main content area with graph and click history
+        html.Div([
+            # Network graph (left side)
+            html.Div([
+                dcc.Graph(
+                    id='network-graph',
+                    figure={
+                        'data': edge_trace + [node_trace],
+                        'layout': go.Layout(
+                            clickmode='event+select',
+                            showlegend=False,
+                            margin=dict(l=20, r=20, t=20, b=20),
+                            hovermode='closest',
+                            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                            annotations=annotations
+                        )
+                    },
+                    style={"height": "600px"}
+                ),
+            ], style={"width": "70%", "display": "inline-block", "verticalAlign": "top"}),
+            
+            # Click history panel (right side)
+            html.Div([
+                html.H3("Click History", style={"textAlign": "center", "margin": "10px 0"}),
+                html.Div([
+                    html.Button("Clear History", id="clear-history-btn", 
+                              style={"width": "100%", "marginBottom": "10px", 
+                                   "backgroundColor": "#f44336", "color": "white", 
+                                   "border": "none", "padding": "8px", "cursor": "pointer"}),
+                    html.Div(id="click-history-list", 
+                           style={"maxHeight": "500px", "overflowY": "auto", 
+                                "border": "1px solid #ddd", "padding": "10px", 
+                                "backgroundColor": "#f9f9f9"})
+                ])
+            ], style={"width": "28%", "display": "inline-block", "verticalAlign": "top", 
+                     "marginLeft": "2%", "padding": "10px"})
+            
+        ], style={"display": "flex", "width": "100%"}),
+        
+        # Node information panel (bottom)
+        html.Div(id='node-info', style={"padding": "20px", "fontSize": "16px", 
+                                       "border": "1px solid #ddd", "marginTop": "20px",
+                                       "backgroundColor": "#f5f5f5"}),
+        
+        # Hidden div to store click history data
+        html.Div(id='click-history-store', style={'display': 'none'})
     ])
 
 def display_node_info(G, clickData, graph_info):
@@ -558,6 +588,58 @@ def display_node_info(G, clickData, graph_info):
         html.P(f"The mostly involved trigger node is {graph_info['max_in_degree'][0][0]} with {graph_info['max_in_degree'][0][1]} connections."),
         html.P(f"The mostly involved action node is {graph_info['max_out_degree'][0][0]} with {graph_info['max_out_degree'][0][1]} connections.")
 ])
+
+def update_click_history(click_history_json, clickData):
+    """Update click history with new click data"""
+    import json
+    from datetime import datetime
+    
+    # Parse existing history
+    if click_history_json:
+        click_history = json.loads(click_history_json)
+    else:
+        click_history = []
+    
+    # Add new click if valid
+    if clickData and 'customdata' in clickData['points'][0]:
+        node = clickData['points'][0]['customdata']
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        
+        # Add to history (limit to last 10 clicks)
+        click_history.append({"node": node, "time": timestamp})
+        if len(click_history) > 10:
+            click_history = click_history[-10:]
+    
+    return json.dumps(click_history)
+
+def render_click_history(click_history_json):
+    """Render click history as HTML components"""
+    import json
+    
+    if not click_history_json:
+        return html.P("No clicks yet. Click on a node to start tracking!", 
+                     style={"textAlign": "center", "color": "#666", "fontStyle": "italic"})
+    
+    click_history = json.loads(click_history_json)
+    
+    if not click_history:
+        return html.P("No clicks yet. Click on a node to start tracking!", 
+                     style={"textAlign": "center", "color": "#666", "fontStyle": "italic"})
+    
+    history_items = []
+    for i, item in enumerate(reversed(click_history)):  # Show most recent first
+        history_items.append(
+            html.Div([
+                html.Div([
+                    html.Span(f"{len(click_history)-i}. ", style={"fontWeight": "bold", "color": "#007bff"}),
+                    html.Span(item["node"], style={"fontWeight": "bold"}),
+                    html.Span(f" at {item['time']}", style={"fontSize": "12px", "color": "#666"})
+                ], style={"padding": "5px", "backgroundColor": "white" if i % 2 == 0 else "#f0f0f0", 
+                         "border": "1px solid #ddd", "marginBottom": "2px", "borderRadius": "3px"})
+            ])
+        )
+    
+    return html.Div(history_items)
 
 ### GRAPH EXAMPLE
 # current_dir = os.getcwd()

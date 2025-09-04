@@ -1,0 +1,10 @@
+# Environment
+.venv
+# Local interpreter setup
+.vscode
+
+# system file
+__pycache__/
+.pyc 
+
+
