@@ -1051,7 +1051,7 @@ def create_analytics_page(click_history_json, G, graph_info):
         
         # Predictions and Recommendations
         html.Div([
-            html.H2("🔮 AI Predictions & Recommendations", style={"textAlign": "center", "margin": "30px 0 20px 0"}),
+            html.H2("🔮 Predictions & Recommendations", style={"textAlign": "center", "margin": "30px 0 20px 0"}),
             
             html.Div([
                 # Preferred Categories
